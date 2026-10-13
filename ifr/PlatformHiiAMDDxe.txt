@@ -1,0 +1,409 @@
+Program version: 1.6.0, Extraction mode: UEFI
+FormSet Guid: 4E45C392-32E2-4134-8FB0-06E7390F22F3, Title: "AMD", Help: "Bios Specification"
+	DefaultStore DefaultId: 0x0, Name: ""
+	DefaultStore DefaultId: 0x1, Name: ""
+	VarStore Guid: 3A997502-647A-4C82-998E-52EF9486A247, VarStoreId: 0x3333, Size: 0x44, Name: "AmdSetup"
+	VarStore Guid: B66E0339-2E6F-4281-9DCE-DE32AB19192C, VarStoreId: 0x3334, Size: 0x66, Name: "AmdSetup2"
+	VarStore Guid: E947FCF9-DD01-4965-B808-32A7B6815657, VarStoreId: 0x1, Size: 0x3F, Name: "System"
+	Form FormId: 0x1, Title: "AMD"
+		Subtitle Prompt: "Bios Specification", Help: "", Flags: 0x0
+		End 
+		Ref Prompt: "Platform", Help: "Platform Bios Specification", QuestionFlags: 0x0, QuestionId: 0x1, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x2
+		Ref Prompt: "CPM Platform", Help: "AMD CPM Specification", QuestionFlags: 0x0, QuestionId: 0x2, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0xB, RefQuestionId: 0x0, FormSetGuid: 58B8A7B2-EEC6-4F75-B635-6104C94F820C
+		Ref Prompt: "FCH Options", Help: " ", QuestionFlags: 0x0, QuestionId: 0x3, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x8001
+		Ref Prompt: "GNB Options", Help: "GNB Options", QuestionFlags: 0x0, QuestionId: 0x4, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x8201
+	End 
+	Form FormId: 0x2, Title: "Platform"
+		Subtitle Prompt: "Platform Bios Specification", Help: "", Flags: 0x0
+		End 
+		SuppressIf 
+			Uint64 Value: 0x0
+				Uint64 Value: 0x0
+				Equal 
+			End 
+			OneOf Prompt: "External Network Controller", Help: "Enable or disable the external Network Controller.", QuestionFlags: 0x0, QuestionId: 0x5, VarStoreId: 0x3333, VarOffset: 0x0, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "Auto" Value: 0, Default
+				OneOfOption Option: "Disabled" Value: 1
+			End 
+		End 
+		SuppressIf 
+			Uint64 Value: 0x1
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x4, QuestionId: 0x4E21, VarStoreId: 0x1, VarOffset: 0x19, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+			End 
+		End 
+		SuppressIf 
+			Uint64 Value: 0x1
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x4, QuestionId: 0x4E22, VarStoreId: 0x1, VarOffset: 0x3, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x5, Value: 0x1
+			GrayOutIf 
+				QuestionRef1 QuestionId: 0x4E21
+					Uint64 Value: 0x0
+					Equal 
+				End 
+				OneOf Prompt: "External Network Boot ROM", Help: " Enable or disable the external LAN Boot ROM.", QuestionFlags: 0x0, QuestionId: 0x6, VarStoreId: 0x3333, VarOffset: 0x1, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "Enabled " Value: 0, Default
+					OneOfOption Option: "Disabled" Value: 1
+				End 
+			End 
+			GrayOutIf 
+				QuestionRef1 QuestionId: 0x4E22
+					Uint64 Value: 0x0
+					Equal 
+				End 
+				OneOf Prompt: "External Network Boot EFI ROM", Help: " Enable or disable the external LAN Boot EFI ROM.", QuestionFlags: 0x0, QuestionId: 0x7, VarStoreId: 0x3333, VarOffset: 0x2, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "Enabled " Value: 1, Default
+					OneOfOption Option: "Disabled" Value: 0
+				End 
+			End 
+		End 
+		OneOf Prompt: "Light Sensor Support", Help: "Enable or disable Light Sensor Support.", QuestionFlags: 0x0, QuestionId: 0x8, VarStoreId: 0x3333, VarOffset: 0x3, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+			OneOfOption Option: "Disabled" Value: 0, Default
+			OneOfOption Option: "Enabled " Value: 1
+		End 
+		OneOf Prompt: "IMC Fan Control", Help: "Enable/Disable Southbridge IMC Support", QuestionFlags: 0x0, QuestionId: 0x9, VarStoreId: 0x3333, VarOffset: 0x26, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+			OneOfOption Option: "Disabled" Value: 0, Default
+			OneOfOption Option: "Enabled " Value: 1
+		End 
+		OneOf Prompt: "ACPI P-state", Help: "ACPI P-state", QuestionFlags: 0x0, QuestionId: 0xA, VarStoreId: 0x3333, VarOffset: 0x4, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+			OneOfOption Option: "Disabled" Value: 0
+			OneOfOption Option: "Enabled " Value: 1, Default
+		End 
+		OneOf Prompt: "AMD SVM Support", Help: "Enable/Disable AMD SVM Support", QuestionFlags: 0x0, QuestionId: 0xB, VarStoreId: 0x3334, VarOffset: 0x2, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+			OneOfOption Option: "Enabled " Value: 0, Default
+			OneOfOption Option: "Disabled" Value: 1
+		End 
+		OneOf Prompt: "AMD SVM Lock Support", Help: "Enable/Disable AMD SVM Lock Support", QuestionFlags: 0x0, QuestionId: 0xC, VarStoreId: 0x3334, VarOffset: 0x3, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+			OneOfOption Option: "Enabled " Value: 0, Default
+			OneOfOption Option: "Disabled" Value: 1
+		End 
+		OneOf Prompt: "SMM Lock Support for Phoenix VariableTest -tc37", Help: "Enable/Disable SMM Lock Support for Phoenix VariableTest -tc37 test case only", QuestionFlags: 0x0, QuestionId: 0xD, VarStoreId: 0x3334, VarOffset: 0x4, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+			OneOfOption Option: "Enabled " Value: 1, Default
+			OneOfOption Option: "Disabled" Value: 0
+		End 
+	End 
+	Form FormId: 0x8001, Title: "FCH Options"
+		Subtitle Prompt: "FCH Options", Help: "", Flags: 0x0
+		End 
+		Subtitle Prompt: " ", Help: "", Flags: 0x0
+		End 
+		Ref Prompt: "UMI/GPP Options", Help: "UMI/GPP Options", QuestionFlags: 0x0, QuestionId: 0xE, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x8010
+		Ref Prompt: "SATA Configuration Options", Help: "SATA Configuration Options", QuestionFlags: 0x0, QuestionId: 0xF, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x8011
+		Ref Prompt: "USB Configuration Options", Help: "USB Configuration Options", QuestionFlags: 0x0, QuestionId: 0x10, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x8012
+		Ref Prompt: "IR Options", Help: "IR Options", QuestionFlags: 0x0, QuestionId: 0x11, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x8014
+		Ref Prompt: "SD Options", Help: "SD Options", QuestionFlags: 0x0, QuestionId: 0x12, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x8015
+		Ref Prompt: "Ac Power Loss Options", Help: "Ac Power Loss Options", QuestionFlags: 0x0, QuestionId: 0x13, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x8017
+		Ref Prompt: "SPI Options", Help: "SPI Options", QuestionFlags: 0x0, QuestionId: 0x14, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x8018
+	End 
+	Form FormId: 0x8010, Title: "UMI/GPP Options"
+		Subtitle Prompt: " ", Help: "", Flags: 0x0
+		End 
+		OneOf Prompt: "UMI Gen2", Help: " ", QuestionFlags: 0x0, QuestionId: 0x15, VarStoreId: 0x3333, VarOffset: 0x11, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+			OneOfOption Option: "Disabled" Value: 0
+			OneOfOption Option: "Enabled " Value: 1, Default
+		End 
+		OneOf Prompt: "FCH GPP OPTION", Help: " ", QuestionFlags: 0x0, QuestionId: 0x16, VarStoreId: 0x3333, VarOffset: 0x12, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+			OneOfOption Option: "Disabled" Value: 0
+			OneOfOption Option: "Enabled " Value: 1, Default
+		End 
+		GrayOutIf 
+			EqIdVal QuestionId: 0x16, Value: 0x0
+			OneOf Prompt: "FCH GPP Port Link", Help: " ", QuestionFlags: 0x0, QuestionId: 0x17, VarStoreId: 0x3333, VarOffset: 0x13, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x4, Step: 0x0
+				OneOfOption Option: "X4       mode" Value: 0
+				OneOfOption Option: "2:2      mode" Value: 2
+				OneOfOption Option: "2 1:1    mode" Value: 3
+				OneOfOption Option: "1:1:1:1  mode" Value: 4, Default
+			End 
+		End 
+	End 
+	Form FormId: 0x8011, Title: "SATA Configuration Options"
+		Subtitle Prompt: " ", Help: "", Flags: 0x0
+		End 
+		OneOf Prompt: "SATA Controller", Help: " ", QuestionFlags: 0x0, QuestionId: 0x18, VarStoreId: 0x3333, VarOffset: 0x14, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+			OneOfOption Option: "Disabled" Value: 0
+			OneOfOption Option: "Enabled " Value: 1, Default
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "SATA MODE", Help: " ", QuestionFlags: 0x0, QuestionId: 0x19, VarStoreId: 0x3333, VarOffset: 0x15, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x6, Step: 0x0
+				OneOfOption Option: "NATIVE IDE" Value: 0
+				OneOfOption Option: "AHCI" Value: 2, Default
+				OneOfOption Option: "LEGACY IDE" Value: 3
+				OneOfOption Option: "IDE TO AHCI" Value: 4
+				OneOfOption Option: "AHCI ID7904" Value: 5
+				OneOfOption Option: "IDE TO AHCI ID7904" Value: 6
+			End 
+		End 
+		OneOf Prompt: "SATA D3 Cold Support", Help: "Only support on Carrizo platform", QuestionFlags: 0x0, QuestionId: 0x1A, VarStoreId: 0x3333, VarOffset: 0x28, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+			OneOfOption Option: "Disabled" Value: 0, Default
+			OneOfOption Option: "Enabled " Value: 1
+		End 
+	End 
+	Form FormId: 0x8012, Title: "USB Configuration Options"
+		Subtitle Prompt: " ", Help: "", Flags: 0x0
+		End 
+		OneOf Prompt: "XHCI Controller 0", Help: "Select disable or enable XHCI HCs (Bus 0 Dev 16 Fn 0), When disable it that will active USB3", QuestionFlags: 0x0, QuestionId: 0x1B, VarStoreId: 0x3333, VarOffset: 0x19, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+			OneOfOption Option: "Disabled" Value: 0
+			OneOfOption Option: "Enabled " Value: 1, Default
+		End 
+		OneOf Prompt: "USB1", Help: "Select disable or enable USB1 HCs (Bus 0 Dev 18 Fn 0/2)", QuestionFlags: 0x0, QuestionId: 0x1C, VarStoreId: 0x3333, VarOffset: 0x1B, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+			OneOfOption Option: "Disabled" Value: 0
+			OneOfOption Option: "Enabled " Value: 1, Default
+		End 
+	End 
+	Form FormId: 0x8014, Title: "IR Options"
+		Subtitle Prompt: " ", Help: "", Flags: 0x0
+		End 
+		OneOf Prompt: "In-Chip IR OPTION", Help: " ", QuestionFlags: 0x0, QuestionId: 0x1D, VarStoreId: 0x3333, VarOffset: 0x1F, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x3, Step: 0x0
+			OneOfOption Option: "Disabled" Value: 0, Default
+			OneOfOption Option: "RX & TX0 Only" Value: 1
+			OneOfOption Option: "RX & TX1 Only" Value: 2
+			OneOfOption Option: "RX, TX0, and TX1" Value: 3
+		End 
+	End 
+	Form FormId: 0x8015, Title: "SD Options"
+		Subtitle Prompt: " ", Help: "", Flags: 0x0
+		End 
+		OneOf Prompt: "SD MODE", Help: " ", QuestionFlags: 0x0, QuestionId: 0x1E, VarStoreId: 0x3333, VarOffset: 0x20, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xF, Step: 0x0
+			OneOfOption Option: "Disabled" Value: 0, Default
+			OneOfOption Option: "Ver2.0" Value: 1
+			OneOfOption Option: "Ver3.0" Value: 2
+			OneOfOption Option: "V3_SDR50" Value: 3
+			OneOfOption Option: "V3_SDR104" Value: 4
+			OneOfOption Option: "V3_DDR50" Value: 5
+			OneOfOption Option: "SdDump" Value: 6
+			OneOfOption Option: "Auto(Version 2.0 + Low Speed)" Value: 15
+		End 
+	End 
+	Form FormId: 0x8016, Title: "Azalia HD Audio Options"
+		Subtitle Prompt: " ", Help: "", Flags: 0x0
+		End 
+		OneOf Prompt: "Azalia Device", Help: " ", QuestionFlags: 0x0, QuestionId: 0x1F, VarStoreId: 0x3333, VarOffset: 0x21, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x2, Step: 0x0
+			OneOfOption Option: "Auto" Value: 0
+			OneOfOption Option: "Disabled" Value: 1
+			OneOfOption Option: "Enabled " Value: 2, Default
+		End 
+	End 
+	Form FormId: 0x8017, Title: "Ac Power Loss Options"
+		Subtitle Prompt: " ", Help: "", Flags: 0x0
+		End 
+		OneOf Prompt: "Ac Loss Control", Help: " ", QuestionFlags: 0x0, QuestionId: 0x20, VarStoreId: 0x3333, VarOffset: 0x22, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x3, Step: 0x0
+			OneOfOption Option: "Always Off" Value: 0, Default
+			OneOfOption Option: "Always On" Value: 1
+			OneOfOption Option: "Previous" Value: 3
+		End 
+	End 
+	Form FormId: 0x8018, Title: "SPI Options"
+		Subtitle Prompt: " ", Help: "", Flags: 0x0
+		End 
+		SuppressIf 
+			Uint64 Value: 0x1
+				Uint64 Value: 0x0
+				Equal 
+			End 
+			OneOf Prompt: "SPI MODE", Help: " ", QuestionFlags: 0x0, QuestionId: 0x21, VarStoreId: 0x3333, VarOffset: 0x25, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x8, Step: 0x0
+				OneOfOption Option: "Normal Read (Up to 33MHZ)" Value: 0
+				OneOfOption Option: "DUAL IO (1-1-2)" Value: 2
+				OneOfOption Option: "QUAD IO (1-1-4)" Value: 3
+				OneOfOption Option: "DUAL IO (1-2-2)" Value: 4
+				OneOfOption Option: "QUAD IO (1-4-4)" Value: 5, Default
+				OneOfOption Option: "Normal Read (Up to 66MHZ)" Value: 6
+				OneOfOption Option: "Fast Read" Value: 7
+				OneOfOption Option: "Auto Mode" Value: 8
+			End 
+		End 
+		SuppressIf 
+			Uint64 Value: 0x1
+				Uint64 Value: 0x0
+				Equal 
+			End 
+			OneOf Prompt: "SPI FAST SPEED", Help: " ", QuestionFlags: 0x0, QuestionId: 0x22, VarStoreId: 0x3333, VarOffset: 0x24, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x4, Step: 0x0
+				OneOfOption Option: "100MHz" Value: 4
+				OneOfOption Option: "66MHz" Value: 0, Default
+				OneOfOption Option: "33MHz" Value: 1
+			End 
+		End 
+		GrayOutIf 
+			Uint64 Value: 0x1
+				Uint64 Value: 0x0
+				Equal 
+			End 
+			OneOf Prompt: "SPI NORMAL SPEED", Help: " ", QuestionFlags: 0x0, QuestionId: 0x23, VarStoreId: 0x3333, VarOffset: 0x23, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x4, Step: 0x0
+				OneOfOption Option: "100MHz" Value: 4
+				OneOfOption Option: "66MHz" Value: 0
+				OneOfOption Option: "33MHz" Value: 1, Default
+			End 
+		End 
+	End 
+	Form FormId: 0x8201, Title: "NorthBridge/GNB Options"
+		Subtitle Prompt: "NorthBridge/GNB Options", Help: "", Flags: 0x0
+		End 
+		Subtitle Prompt: " ", Help: "", Flags: 0x0
+		End 
+		Ref Prompt: "GFX Configuration", Help: " ", QuestionFlags: 0x0, QuestionId: 0x24, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x8202
+		Ref Prompt: "PCIE Configuration", Help: " ", QuestionFlags: 0x0, QuestionId: 0x25, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x8203
+		Ref Prompt: "NB Configuration", Help: " ", QuestionFlags: 0x0, QuestionId: 0x26, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x8205
+	End 
+	Form FormId: 0x8202, Title: "GFX Configuration"
+		Subtitle Prompt: "GFX Configuration", Help: "", Flags: 0x0
+		End 
+		Subtitle Prompt: " ", Help: "", Flags: 0x0
+		End 
+		OneOf Prompt: "Integrated Graphics", Help: "Enable Integrate Graphics controller", QuestionFlags: 0x4, QuestionId: 0x2717, VarStoreId: 0x3333, VarOffset: 0x8, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x2, Step: 0x0
+			OneOfOption Option: "Auto" Value: 0
+			OneOfOption Option: "Disabled" Value: 1
+			OneOfOption Option: "Force" Value: 2, Default
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x2717, Value: 0x1
+				EqIdVal QuestionId: 0x2717, Value: 0x0
+				Or 
+			End 
+			OneOf Prompt: "UMA Frame buffer Size", Help: "Set UMA FB size", QuestionFlags: 0x0, QuestionId: 0x27, VarStoreId: 0x3333, VarOffset: 0x9, Flags: 0x11, Size: 16, Min: 0x0, Max: 0x800, Step: 0x0
+				OneOfOption Option: "Auto" Value: 0
+				OneOfOption Option: "32M" Value: 32
+				OneOfOption Option: "64M" Value: 64
+				OneOfOption Option: "128M" Value: 128
+				OneOfOption Option: "256M" Value: 256
+				OneOfOption Option: "384M" Value: 384
+				OneOfOption Option: "512M" Value: 512, Default
+				OneOfOption Option: "1G" Value: 1024
+				OneOfOption Option: "2G" Value: 2048
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x2717, Value: 0x1
+			OneOf Prompt: "UMA Version", Help: "UMA Version", QuestionFlags: 0x0, QuestionId: 0x28, VarStoreId: 0x3333, VarOffset: 0x27, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "Legacy Version" Value: 0
+				OneOfOption Option: "Non Legacy Version" Value: 1, Default
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x2717, Value: 0x1
+			OneOf Prompt: "NB Azalia", Help: "Enable Integrate HD Audio controller", QuestionFlags: 0x0, QuestionId: 0x29, VarStoreId: 0x3333, VarOffset: 0xB, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x2, Step: 0x0
+				OneOfOption Option: "Auto" Value: 0, Default
+				OneOfOption Option: "Disabled" Value: 1
+				OneOfOption Option: "Enabled " Value: 2
+			End 
+		End 
+		GrayOutIf 
+			Uint64 Value: 0x1
+			Text Prompt: " ", Help: " ", Text: " "
+		End 
+		SuppressIf 
+			Uint64 Value: 0x1
+			OneOf Prompt: " ", Help: " ", QuestionFlags: 0x4, QuestionId: 0x2711, VarStoreId: 0x3334, VarOffset: 0x1, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xF, Step: 0x0
+			End 
+		End 
+		SuppressIf 
+			QuestionRef1 QuestionId: 0x2711
+				Uint64 Value: 0x0
+				Equal 
+			End 
+			Text Prompt: "Controller Name", Help: " ", Text: "Unknown"
+		End 
+		SuppressIf 
+			QuestionRef1 QuestionId: 0x2711
+				Uint64 Value: 0x0
+				Equal 
+			End 
+			Text Prompt: "Driver Version", Help: " ", Text: "0.0.0.0"
+		End 
+		GrayOutIf 
+			Uint64 Value: 0x1
+			Text Prompt: " ", Help: " ", Text: " "
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x2717, Value: 0x1
+				QuestionRef1 QuestionId: 0x2711
+				Uint64 Value: 0x1
+				LessThan 
+				Or 
+				QuestionRef1 QuestionId: 0x2711
+				Uint64 Value: 0x1
+				GreaterThan 
+				Or 
+			End 
+			OneOf Prompt: "Default Boot Display", Help: "Select the Video Device activated during POST.  This has no effect if external graphics are present.", QuestionFlags: 0x4, QuestionId: 0x2712, VarStoreId: 0x3334, VarOffset: 0x0, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				OneOfOption Option: "Unknown" Value: 0
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x2717, Value: 0x1
+				QuestionRef1 QuestionId: 0x2711
+				Uint64 Value: 0x2
+				LessThan 
+				Or 
+				QuestionRef1 QuestionId: 0x2711
+				Uint64 Value: 0x2
+				GreaterThan 
+				Or 
+			End 
+			OneOf Prompt: "Default Boot Display", Help: "Select the Video Device activated during POST.  This has no effect if external graphics are present.", QuestionFlags: 0x4, QuestionId: 0x2713, VarStoreId: 0x3334, VarOffset: 0x0, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "Unknown" Value: 0
+				OneOfOption Option: "Unknown" Value: 1
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x2717, Value: 0x1
+				QuestionRef1 QuestionId: 0x2711
+				Uint64 Value: 0x3
+				LessThan 
+				Or 
+				QuestionRef1 QuestionId: 0x2711
+				Uint64 Value: 0x3
+				GreaterThan 
+				Or 
+			End 
+			OneOf Prompt: "Default Boot Display", Help: "Select the Video Device activated during POST.  This has no effect if external graphics are present.", QuestionFlags: 0x4, QuestionId: 0x2714, VarStoreId: 0x3334, VarOffset: 0x0, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x2, Step: 0x0
+				OneOfOption Option: "Unknown" Value: 0
+				OneOfOption Option: "Unknown" Value: 1
+				OneOfOption Option: "Unknown" Value: 2
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x2717, Value: 0x1
+				QuestionRef1 QuestionId: 0x2711
+				Uint64 Value: 0x4
+				LessThan 
+				Or 
+				QuestionRef1 QuestionId: 0x2711
+				Uint64 Value: 0x4
+				GreaterThan 
+				Or 
+			End 
+			OneOf Prompt: "Default Boot Display", Help: "Select the Video Device activated during POST.  This has no effect if external graphics are present.", QuestionFlags: 0x4, QuestionId: 0x2715, VarStoreId: 0x3334, VarOffset: 0x0, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x3, Step: 0x0
+				OneOfOption Option: "Unknown" Value: 0
+				OneOfOption Option: "Unknown" Value: 1
+				OneOfOption Option: "Unknown" Value: 2
+				OneOfOption Option: "Unknown" Value: 3
+			End 
+		End 
+	End 
+	Form FormId: 0x8205, Title: "NB Configuration"
+		Subtitle Prompt: "NB Configuration", Help: "", Flags: 0x0
+		End 
+		Subtitle Prompt: " ", Help: "", Flags: 0x0
+		End 
+		OneOf Prompt: "IOMMU", Help: " ", QuestionFlags: 0x0, QuestionId: 0x2A, VarStoreId: 0x3334, VarOffset: 0x5, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+			OneOfOption Option: "Disabled" Value: 0
+			OneOfOption Option: "Enabled " Value: 1, Default
+		End 
+	End 
+	Form FormId: 0x8203, Title: "PCIE Configuration"
+		Subtitle Prompt: "PCIE Configuration", Help: "", Flags: 0x0
+		End 
+		Subtitle Prompt: " ", Help: "", Flags: 0x0
+		End 
+		OneOf Prompt: "PSPP Policy", Help: "PCIe speed power policy", QuestionFlags: 0x0, QuestionId: 0x2B, VarStoreId: 0x3333, VarOffset: 0xF, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x5, Step: 0x0
+			OneOfOption Option: "Disabled" Value: 0
+			OneOfOption Option: "Performance" Value: 1
+			OneOfOption Option: "Balanced-High" Value: 2
+			OneOfOption Option: "Balanced-Low" Value: 3, Default
+			OneOfOption Option: "Power Saving" Value: 4
+			OneOfOption Option: "Auto" Value: 5
+		End 
+	End 
+End 

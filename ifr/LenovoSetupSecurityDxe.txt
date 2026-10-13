@@ -1,0 +1,1004 @@
+Program version: 1.6.0, Extraction mode: UEFI
+FormSet Guid: 7FE80B2D-FEE9-4671-A0F4-F7C7C7D59EF4, Title: "Security", Help: ""
+	Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Class, Class: 0x1
+	Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: SubClass, SubClass: 0x0
+	DefaultStore DefaultId: 0x0, Name: ""
+	DefaultStore DefaultId: 0x1, Name: ""
+	VarStore Guid: E947FCF9-DD01-4965-B808-32A7B6815657, VarStoreId: 0x1, Size: 0x3F, Name: "System"
+	VarStore Guid: 2A4DC6B7-41F5-45DD-B46F-2DD334C1CF65, VarStoreId: 0x2, Size: 0xF3, Name: "LenovoConfig"
+	VarStore Guid: A2C1808F-0D4F-4CC9-A619-D1E641D39D49, VarStoreId: 0x3, Size: 0x8B, Name: "LenovoSecurityConfig"
+	VarStore Guid: 67C3208E-4FCB-498F-9729-0760BB4109A7, VarStoreId: 0x4, Size: 0x31, Name: "LenovoScratchData"
+	VarStore Guid: 9C41AD34-4E35-48E7-B1EF-F2AB04BDF855, VarStoreId: 0x5, Size: 0xC, Name: "SECURITY_VOLATILE_DATA"
+	VarStore Guid: 9258CACB-CD17-4D9C-8EB9-D3CC74B1D9E5, VarStoreId: 0x6, Size: 0x2, Name: "SECUREBOOT_CONFIGURATION"
+	VarStore Guid: 1827CFC7-4E61-4273-B796-D35F4B0C88FC, VarStoreId: 0x7, Size: 0x22, Name: "LenovoHiddenSetting"
+	Form FormId: 0x1, Title: "Security"
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x1, VarStoreId: 0x4, VarOffset: 0x0, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x2, VarStoreId: 0x4, VarOffset: 0x15, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x3, VarStoreId: 0x5, VarOffset: 0x1, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		Ref Prompt: "Password", Help: " ", QuestionFlags: 0x0, QuestionId: 0x4, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x2
+		Ref Prompt: "Fingerprint", Help: "", QuestionFlags: 0x0, QuestionId: 0x5, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x3
+		SuppressIf 
+			EqIdVal QuestionId: 0x3, Value: 0x0
+			Ref Prompt: "Security Chip", Help: "", QuestionFlags: 0x0, QuestionId: 0x6, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x4
+		End 
+		Ref Prompt: "UEFI BIOS Update Option", Help: "", QuestionFlags: 0x0, QuestionId: 0x7, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x5
+		Ref Prompt: "Memory Protection", Help: "", QuestionFlags: 0x0, QuestionId: 0x8, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0xA
+		Ref Prompt: "Virtualization", Help: "", QuestionFlags: 0x0, QuestionId: 0x9, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0xB
+		Ref Prompt: "I/O Port Access", Help: "", QuestionFlags: 0x0, QuestionId: 0xA, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x6
+		Ref Prompt: "Internal Device Access", Help: " ", QuestionFlags: 0x0, QuestionId: 0xB, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0xD
+		SuppressIf 
+			True 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x4, QuestionId: 0x213, VarStoreId: 0x7, VarOffset: 0x1, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+			End 
+		End 
+		SuppressIf 
+			EqIdValList QuestionId: 0x213, Values: [1]
+			Ref Prompt: "Anti-Theft", Help: "", QuestionFlags: 0x0, QuestionId: 0xC, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x7
+		End 
+		Ref Prompt: "Secure Boot", Help: "", QuestionFlags: 0x0, QuestionId: 0xD, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0xC
+		Ref Prompt: "Device Guard", Help: "", QuestionFlags: 0x0, QuestionId: 0xE, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0xF
+		Ref Prompt: "DASH Configuration", Help: "", QuestionFlags: 0x0, QuestionId: 0xF, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x10
+	End 
+	Form FormId: 0x2, Title: "Password"
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x10, VarStoreId: 0x5, VarOffset: 0x3, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		GrayOutIf 
+			Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+				Not 
+			End 
+			Action Prompt: "Supervisor Password", Help: "Supervisor Password prevents unauthorized users from accessing these items in ThinkPad Setup:Boot priority lists Network related items Date & Time To have a beep sound when the system is waiting for this password, enable the Password Beep feature in the Alarm submenu.", QuestionFlags: 0x4, QuestionId: 0xC8, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, QuestionConfig: ""
+			End 
+		End 
+		GrayOutIf 
+			True 
+			Text Prompt: "", Help: "", Text: ""
+		End 
+		GrayOutIf 
+			Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+				Not 
+			End 
+			OneOf Prompt: "Lock UEFI BIOS Settings", Help: "Enabling Lock UEFI BIOS Settings prevents users from making any changes in ThinkPad Setup without entering a Supervisor Password. UEFI BIOS Lock will not take effect unless Supervisor password is enabled.", QuestionFlags: 0x0, QuestionId: 0x11, VarStoreId: 0x3, VarOffset: 0x2, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+		GrayOutIf 
+			True 
+			Text Prompt: "", Help: "", Text: ""
+		End 
+		GrayOutIf 
+			Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+				Not 
+			End 
+			OneOf Prompt: "Password at Unattended Boot", Help: "[Enabled] The system to prompt for passwords when the system starts from full off state or hibernate by unattended events.[Disabled] Passwords are not prompted and continue to boot the OS. To protect unauthorized access to the system, recommend to set user authentication on the OS.", QuestionFlags: 0x0, QuestionId: 0x12, VarStoreId: 0x3, VarOffset: 0x4, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+		GrayOutIf 
+			Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+				Not 
+			End 
+			OneOf Prompt: "Password at Restart", Help: "[Enabled]The system to prompt for passwords when the system restarts.[Disabled]Passwords are not prompted and continue to boot the OS. To protect unauthorized access to the system, recommend to set user authentication on the OS.", QuestionFlags: 0x0, QuestionId: 0x13, VarStoreId: 0x3, VarOffset: 0x27, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+		GrayOutIf 
+			Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+				Not 
+			End 
+			OneOf Prompt: "Password at Boot Device List", Help: "If the Security password is set, this option is used to specify whether the Security password must be entered to display the F12 boot device list.
+Select Enabled to prompt for the Security password.
+Select Disabled to proceed without any user action required.", QuestionFlags: 0x0, QuestionId: 0x14, VarStoreId: 0x3, VarOffset: 0x34, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+		GrayOutIf 
+			True 
+			Text Prompt: "", Help: "", Text: ""
+		End 
+		GrayOutIf 
+			Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+				Not 
+			End 
+			OneOf Prompt: "Password Count Exceeded Error", Help: "Select Enabled to show the POST 0199 error and prompt for the Security password.
+
+Select Disabled to hide the POST 0199 error and proceed without any user action required.", QuestionFlags: 0x0, QuestionId: 0x15, VarStoreId: 0x3, VarOffset: 0x33, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+		GrayOutIf 
+			True 
+			Text Prompt: "", Help: "", Text: ""
+		End 
+		GrayOutIf 
+			Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+				Not 
+			End 
+			OneOf Prompt: "Set Minimum Length", Help: "If a minimum is set, Power-On and Hard Disk password lengths must be equal to or longer than that number. Otherwise, they can be 1 to 64 characters.Note: supervisor password must be disabled or you must log in as supervisor to change an already-set minimum value.", QuestionFlags: 0x4, QuestionId: 0xE6, VarStoreId: 0x3, VarOffset: 0x3, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x9, Step: 0x0
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "4 characters" Value: 1
+				OneOfOption Option: "5 characters" Value: 2
+				OneOfOption Option: "6 characters" Value: 3
+				OneOfOption Option: "7 characters" Value: 4
+				OneOfOption Option: "8 characters" Value: 5
+				OneOfOption Option: "9 characters" Value: 6
+				OneOfOption Option: "10 characters" Value: 7
+				OneOfOption Option: "11 characters" Value: 8
+				OneOfOption Option: "12 characters" Value: 9
+			End 
+		End 
+		GrayOutIf 
+			Security Guid: BDB38125-4D63-49F4-8212-61CF5A190AF8
+				Security Guid: 1DB29AE0-9DCB-43BC-8D87-5DA14964DDE2
+				EqIdValList QuestionId: 0x10, Values: [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30]
+				And 
+				Or 
+			End 
+			Action Prompt: "Power-On Password", Help: "Power-On Password prevents unauthorized users from booting your computer. Older operating systems also require the password when resuming. To have a beep sound when the system is waiting for this password, enable the Password Beep feature in the Alarm submenu.", QuestionFlags: 0x4, QuestionId: 0xC9, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, QuestionConfig: ""
+			End 
+		End 
+		SuppressIf 
+			EqIdValList QuestionId: 0x10, Values: [0, 1, 4, 5, 8, 9, 12, 13, 16, 17, 20, 21, 24, 25, 28, 29]
+			GrayOutIf 
+				Security Guid: BDB38125-4D63-49F4-8212-61CF5A190AF8
+				Action Prompt: "Hard Disk1 Password", Help: "Hard Disk Password prevents unauthorized users from accessing the data on the hard disk. In addition to the user password, an optional Master password can be used to give access to an administrator.To have a beep sound when the system is waiting for this password, enable the Password Beep feature in the Alarm submenu.", QuestionFlags: 0x4, QuestionId: 0xCB, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, QuestionConfig: ""
+				End 
+			End 
+		End 
+		SuppressIf 
+			EqIdValList QuestionId: 0x10, Values: [0, 1, 2, 3, 8, 9, 10, 11, 16, 17, 18, 19, 24, 25, 26, 27]
+			GrayOutIf 
+				Security Guid: BDB38125-4D63-49F4-8212-61CF5A190AF8
+				Action Prompt: "Hard Disk2 Password", Help: "Hard Disk Password prevents unauthorized users from accessing the data on the hard disk. In addition to the user password, an optional Master password can be used to give access to an administrator.To have a beep sound when the system is waiting for this password, enable the Password Beep feature in the Alarm submenu.", QuestionFlags: 0x4, QuestionId: 0xCC, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, QuestionConfig: ""
+				End 
+			End 
+		End 
+		SuppressIf 
+			EqIdValList QuestionId: 0x10, Values: [0, 1, 2, 3, 4, 5, 6, 7, 16, 17, 18, 19, 20, 21, 22, 23]
+			GrayOutIf 
+				Security Guid: BDB38125-4D63-49F4-8212-61CF5A190AF8
+				Action Prompt: "Hard Disk3 Password", Help: "Hard Disk Password prevents unauthorized users from accessing the data on the hard disk. In addition to the user password, an optional Master password can be used to give access to an administrator.To have a beep sound when the system is waiting for this password, enable the Password Beep feature in the Alarm submenu.", QuestionFlags: 0x4, QuestionId: 0xCD, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, QuestionConfig: ""
+				End 
+			End 
+		End 
+		SuppressIf 
+			EqIdValList QuestionId: 0x10, Values: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+			GrayOutIf 
+				Security Guid: BDB38125-4D63-49F4-8212-61CF5A190AF8
+				Action Prompt: "Hard Disk4 Password", Help: "Hard Disk Password prevents unauthorized users from accessing the data on the hard disk. In addition to the user password, an optional Master password can be used to give access to an administrator.To have a beep sound when the system is waiting for this password, enable the Password Beep feature in the Alarm submenu.", QuestionFlags: 0x4, QuestionId: 0xCE, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, QuestionConfig: ""
+				End 
+			End 
+		End 
+	End 
+	Form FormId: 0x3, Title: "Fingerprint"
+		GrayOutIf 
+			Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+				Not 
+			End 
+			OneOf Prompt: "Predesktop Authentication", Help: "[Enabled]Authentication by a fingerprint is enabled at predesktop. [Disabled]Authentication by a fingerprint is disabled at predesktop.", QuestionFlags: 0x0, QuestionId: 0x16, VarStoreId: 0x3, VarOffset: 0x5, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+		GrayOutIf 
+			Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+				Not 
+			End 
+			OneOf Prompt: "Reader Priority", Help: "[External]An external fingerprint reader is used. If an external reader is not present, an internal reader is used.
+ [Internal]An internal fingerprint reader is used. If an internal reader is not present, an external reader is used.", QuestionFlags: 0x0, QuestionId: 0x17, VarStoreId: 0x3, VarOffset: 0x6, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "External->Internal" Value: 0
+				OneOfOption Option: "Internal Only" Value: 1
+			End 
+		End 
+		GrayOutIf 
+			Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+				Not 
+			End 
+			OneOf Prompt: "Security Mode", Help: "[Normal]Power-On Password or Supervisor Password must be entered to boot a system when no fingerprint is authenticated.[High]Supervisor password must be entered to boot a system when no fingerprint is authenticated. Power-On Password is not accepted.", QuestionFlags: 0x0, QuestionId: 0x18, VarStoreId: 0x3, VarOffset: 0x7, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "Normal" Value: 0
+				OneOfOption Option: "High" Value: 1
+			End 
+		End 
+		SuppressIf 
+			EqIdValList QuestionId: 0x18, Values: [0]
+			GrayOutIf 
+				Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+					Not 
+				End 
+				OneOf Prompt: "Password Authentication", Help: "[Enabled]Authentication bypassword is enabled.Users areauthenticated bypasswords whenfingerprints are notavailable. [Disabled]Authentication bypassword is disabled.Users are notauthenticated bypasswords. Note thatadministrators areauthenticated by aSupervisor Password.", QuestionFlags: 0x0, QuestionId: 0x19, VarStoreId: 0x3, VarOffset: 0x8, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "Disabled" Value: 0
+					OneOfOption Option: "Enabled" Value: 1
+				End 
+			End 
+		End 
+		GrayOutIf 
+			True 
+			Text Prompt: "", Help: "", Text: ""
+		End 
+		GrayOutIf 
+			Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+				Not 
+			End 
+			Action Prompt: "Reset Fingerprint Data", Help: "This option is used toerase all fingerprintdata stored in thefingerprint reader andreset settings to thefactory state (ex.Power-on security,LEDs, etc.) As aresult, any power-onsecurity featurespreviously enabledwill not be able towork until they arere-enabled in thefingerprint software.", QuestionFlags: 0x4, QuestionId: 0x208, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, QuestionConfig: "Enter"
+			End 
+		End 
+	End 
+	Form FormId: 0x4, Title: "Security Chip"
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x1A, VarStoreId: 0x5, VarOffset: 0x0, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x1B, VarStoreId: 0x5, VarOffset: 0x2, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x1C, VarStoreId: 0x5, VarOffset: 0x8, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x1D, VarStoreId: 0x5, VarOffset: 0x9, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x1E, VarStoreId: 0x5, VarOffset: 0xA, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x1F, VarStoreId: 0x5, VarOffset: 0xB, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x1B, Value: 0x0
+				EqIdVal QuestionId: 0x1D, Value: 0x1
+				Or 
+				EqIdVal QuestionId: 0x1E, Value: 0x1
+				Or 
+				EqIdVal QuestionId: 0x1F, Value: 0x1
+				Or 
+			End 
+			GrayOutIf 
+				EqIdVal QuestionId: 0x1A, Value: 0x0
+					Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+					Not 
+					Or 
+				End 
+				OneOf Prompt: "Security Chip Selection", Help: "[Discrete TPM]Use a discrete TPMchip with TPM 1.2mode. [Intel PTT]Use Intel(R) PlatformTrusted Technologywith TPM 2.0 mode. Note: Intel(R) PTT canbe used withMicrosoft (R)Windows 10 (R)operating system.", QuestionFlags: 0x4, QuestionId: 0x1FB, VarStoreId: 0x3, VarOffset: 0x31, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "Discrete TPM" Value: 0
+					OneOfOption Option: "Intel PTT" Value: 1
+				End 
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x1B, Value: 0x1
+				EqIdVal QuestionId: 0x1E, Value: 0x1
+				Or 
+				EqIdVal QuestionId: 0x1F, Value: 0x0
+				Or 
+			End 
+			GrayOutIf 
+				Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+					Not 
+				End 
+				OneOf Prompt: "Security Chip Selection", Help: "[TPM 1.2]Use a discrete TPMchip with TPM 1.2mode. [TPM 2.0]Use a discrete TPMchip with TPM 2.0mode.", QuestionFlags: 0x4, QuestionId: 0x20A, VarStoreId: 0x3, VarOffset: 0x3D, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "TPM 1.2" Value: 0
+					OneOfOption Option: "TPM 2.0" Value: 1
+				End 
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x1E, Value: 0x0
+			Text Prompt: "Security Chip Type", Help: "", Text: "AMD fTPM"
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x1B, Value: 0x1
+				EqIdVal QuestionId: 0x1D, Value: 0x1
+				Or 
+				EqIdVal QuestionId: 0x1E, Value: 0x1
+				Or 
+				EqIdVal QuestionId: 0x1F, Value: 0x1
+				Or 
+			End 
+			Text Prompt: "Security Chip Type", Help: "", Text: "TPM 1.2"
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x1D, Value: 0x0
+				EqIdVal QuestionId: 0x1F, Value: 0x1
+				Or 
+			End 
+			Text Prompt: "Security Chip Type", Help: "", Text: "TPM 2.0"
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x1A, Value: 0x0
+				EqIdVal QuestionId: 0x1FB, Value: 0x1
+				Or 
+				EqIdVal QuestionId: 0x1D, Value: 0x1
+				Or 
+				EqIdVal QuestionId: 0x1F, Value: 0x1
+				Or 
+			End 
+			GrayOutIf 
+				Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+					Not 
+				End 
+				OneOf Prompt: "Security Chip", Help: "[Active]Security chip is functional. [Inactive]Security chip is visible, but is not functional. [Disabled]Security chip is hidden and is not functional.", QuestionFlags: 0x4, QuestionId: 0x1F5, VarStoreId: 0x3, VarOffset: 0xA, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x2, Step: 0x0
+					OneOfOption Option: "Active" Value: 0
+					OneOfOption Option: "Inactive" Value: 1
+					OneOfOption Option: "Disabled" Value: 2
+				End 
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x1A, Value: 0x0
+				EqIdVal QuestionId: 0x1FB, Value: 0x0
+				Or 
+				EqIdVal QuestionId: 0x1D, Value: 0x1
+				Or 
+				EqIdVal QuestionId: 0x1F, Value: 0x1
+				Or 
+			End 
+			GrayOutIf 
+				Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+					Not 
+				End 
+				OneOf Prompt: "Security Chip", Help: "[Enable]Security chip is functional. [Disabled]Security chip is hidden and is not functional.", QuestionFlags: 0x4, QuestionId: 0x1FD, VarStoreId: 0x3, VarOffset: 0xA, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x2, Step: 0x0
+					OneOfOption Option: "Enabled" Value: 0
+					OneOfOption Option: "Disabled" Value: 2
+				End 
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x1A, Value: 0x0
+				EqIdVal QuestionId: 0x1D, Value: 0x0
+				Or 
+				EqIdVal QuestionId: 0x1F, Value: 0x1
+				Or 
+			End 
+			GrayOutIf 
+				Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+					Not 
+				End 
+				OneOf Prompt: "Security Chip", Help: "[Enable]Security chip is functional. [Disabled]Security chip is hidden and is not functional.", QuestionFlags: 0x4, QuestionId: 0x209, VarStoreId: 0x3, VarOffset: 0xA, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x2, Step: 0x0
+					OneOfOption Option: "Enabled" Value: 0
+					OneOfOption Option: "Disabled" Value: 2
+				End 
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x1A, Value: 0x0
+				EqIdVal QuestionId: 0x1F, Value: 0x0
+				Or 
+				EqIdVal QuestionId: 0x20A, Value: 0x1
+				Or 
+			End 
+			GrayOutIf 
+				Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+					Not 
+				End 
+				OneOf Prompt: "Security Chip", Help: "[Active]Security chip is functional. [Inactive]Security chip is visible, but is not functional. [Disabled]Security chip is hidden and is not functional.", QuestionFlags: 0x4, QuestionId: 0x20B, VarStoreId: 0x3, VarOffset: 0xA, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x2, Step: 0x0
+					OneOfOption Option: "Active" Value: 0
+					OneOfOption Option: "Inactive" Value: 1
+					OneOfOption Option: "Disabled" Value: 2
+				End 
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x1A, Value: 0x0
+				EqIdVal QuestionId: 0x1F, Value: 0x0
+				Or 
+				EqIdVal QuestionId: 0x20A, Value: 0x0
+				Or 
+			End 
+			GrayOutIf 
+				Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+					Not 
+				End 
+				OneOf Prompt: "Security Chip", Help: "[Enable]Security chip is functional. [Disabled]Security chip is hidden and is not functional.", QuestionFlags: 0x4, QuestionId: 0x20C, VarStoreId: 0x3, VarOffset: 0xA, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x2, Step: 0x0
+					OneOfOption Option: "Enabled" Value: 0
+					OneOfOption Option: "Disabled" Value: 2
+				End 
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x1A, Value: 0x1
+			Text Prompt: "Security Chip", Help: "", Text: "MFG Mode"
+		End 
+		SuppressIf 
+			EqIdValList QuestionId: 0x20C, Values: [1, 2]
+			GrayOutIf 
+				Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+					Not 
+				End 
+				GrayOutIf 
+					True 
+					Text Prompt: "", Help: "", Text: ""
+				End 
+				Ref Prompt: "Security Reporting Options", Help: "This option allows you to enable or disable Security Reporting Options. If options are enabled, changes to corresponding UEFI BIOS data are logged in a location, (PCR1, defined in the TCG standards), which other authorized programs can monitor, read & analyze.", QuestionFlags: 0x0, QuestionId: 0x20, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x8
+			End 
+		End 
+		SuppressIf 
+			EqIdValList QuestionId: 0x20C, Values: [1, 2]
+			GrayOutIf 
+				True 
+				Text Prompt: "", Help: "", Text: ""
+			End 
+			GrayOutIf 
+				Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+					Not 
+				End 
+				Action Prompt: "Clear Security Chip", Help: "This option is used to clear encryption keys. It will not be possible to access already-encrypted data after these keys are cleared.", QuestionFlags: 0x4, QuestionId: 0x1F6, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, QuestionConfig: "Enter"
+				End 
+			End 
+		End 
+		SuppressIf 
+			EqIdValList QuestionId: 0x20C, Values: [1, 2]
+				EqIdVal QuestionId: 0x35, Value: 0x0
+				Or 
+				EqIdVal QuestionId: 0x1FB, Value: 0x1
+				Or 
+				EqIdVal QuestionId: 0x1E, Value: 0x1
+				Or 
+				EqIdVal QuestionId: 0x28A, Value: 0x0
+				Or 
+			End 
+			Text Prompt: "* Unselectable for Device Guard", Help: "", Text: ""
+		End 
+		GrayOutIf 
+			True 
+			Text Prompt: "", Help: "", Text: ""
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x1F, Value: 0x0
+				EqIdVal QuestionId: 0x1E, Value: 0x1
+				Or 
+			End 
+			GrayOutIf 
+				Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+					Not 
+				End 
+				OneOf Prompt: "Physical Presence for Provisioning", Help: "This option enables ordisables confirmationof a user's physicalpresence whenprovisioning thesecurity chip.
+ [Enabled]Display userconfirmation screenwhen provisioning. [Disabled]No user confirmationscreen whenprovisioning.", QuestionFlags: 0x4, QuestionId: 0x1F9, VarStoreId: 0x3, VarOffset: 0x2B, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "Disabled" Value: 0
+					OneOfOption Option: "Enabled" Value: 1
+				End 
+			End 
+		End 
+		GrayOutIf 
+			Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+				Not 
+			End 
+			OneOf Prompt: "Physical Presence for Clear", Help: "This option enables ordisables confirmationof a user's physicalpresence when clearingthe security chip.
+ [Enabled]Display userconfirmation screenwhen clearing. [Disabled]No user confirmationscreen when clearing.", QuestionFlags: 0x4, QuestionId: 0x1FA, VarStoreId: 0x3, VarOffset: 0x2C, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+	End 
+	Form FormId: 0x8, Title: "Security Reporting Options"
+		GrayOutIf 
+			Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+				Not 
+			End 
+			OneOf Prompt: "SMBIOS Reporting", Help: "This option enables or disables reporting of SMBIOS data.", QuestionFlags: 0x0, QuestionId: 0x21, VarStoreId: 0x3, VarOffset: 0x11, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+	End 
+	Form FormId: 0x5, Title: "UEFI BIOS Update Option"
+		GrayOutIf 
+			True 
+			Text Prompt: "Flash BIOS Updating by End-Users", Help: "", Text: ""
+		End 
+		GrayOutIf 
+			Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+				Not 
+			End 
+			OneOf Prompt: "", Help: "Configure Flash BIOS Updating options:
+[Disabled]Entering supervisor password is required to update UEFI BIOS when supervisor password is installed.
+[Enabled]UEFI BIOS can be updated without entering supervisor password.", QuestionFlags: 0x0, QuestionId: 0x22, VarStoreId: 0x3, VarOffset: 0x12, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+		GrayOutIf 
+			Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+				Not 
+			End 
+			OneOf Prompt: "Secure RollBack Prevention", Help: "[Disabled]Allow flashing to older version of UEFI BIOS.
+[Enabled]Prevent flashing to older version of UEFI BIOS.", QuestionFlags: 0x4, QuestionId: 0x244, VarStoreId: 0x3, VarOffset: 0x2E, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+		GrayOutIf 
+			Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+				Not 
+			End 
+			OneOf Prompt: "Windows UEFI Firmware Update", Help: "This option enables or disables Windows UEFI Firmware Update feature.[Enabled] Allow Windows UEFI Firmware Update.[Disabled] BIOS will skip Windows UEFI Firmware Update.", QuestionFlags: 0x4, QuestionId: 0x23, VarStoreId: 0x3, VarOffset: 0x3C, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+	End 
+	Form FormId: 0xA, Title: "Memory Protection"
+		GrayOutIf 
+			Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+				Not 
+			End 
+			OneOf Prompt: "Execution Prevention", Help: "Enabled: If your OS supports Data Execution Prevention, this setting can prevent virus/worm attacks that create memory buffer overflows by running code where only data is allowed.
+Disabled: Normal state
+Note: reset to disabled if your required applications can't run.", QuestionFlags: 0x4, QuestionId: 0x64, VarStoreId: 0x3, VarOffset: 0x14, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+	End 
+	Form FormId: 0xB, Title: "Virtualization"
+		SuppressIf 
+			EqIdVal QuestionId: 0x34, Value: 0x0
+			GrayOutIf 
+				Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+					Not 
+					EqIdVal QuestionId: 0x28A, Value: 0x1
+					Or 
+				End 
+				OneOf Prompt: "AMD V(TM) Technology", Help: "When enabled, a VMM can utilize the additional hardware capabilities provided by AMD Virtualization technology.", QuestionFlags: 0x0, QuestionId: 0x24, VarStoreId: 0x3, VarOffset: 0x3E, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "Enabled" Value: 0
+					OneOfOption Option: "Disabled" Value: 1
+				End 
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x28A, Value: 0x0
+			GrayOutIf 
+				True 
+				Text Prompt: "", Help: "", Text: ""
+			End 
+			Text Prompt: "* Unselectable for Device Guard", Help: "", Text: ""
+		End 
+	End 
+	Form FormId: 0x6, Title: "I/O Port Access"
+		SuppressIf 
+			Uint64 Value: 0x1
+			OneOf Prompt: "Disabled", Help: "Disabled", QuestionFlags: 0x0, QuestionId: 0x25, VarStoreId: 0x4, VarOffset: 0x11, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+			End 
+		End 
+		SuppressIf 
+			Uint64 Value: 0x1
+			OneOf Prompt: "Disabled", Help: "Disabled", QuestionFlags: 0x0, QuestionId: 0x26, VarStoreId: 0x4, VarOffset: 0x13, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+			End 
+		End 
+		SuppressIf 
+			Uint64 Value: 0x1
+			OneOf Prompt: "Disabled", Help: "Disabled", QuestionFlags: 0x0, QuestionId: 0x27, VarStoreId: 0x4, VarOffset: 0x14, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+			End 
+		End 
+		GrayOutIf 
+			EqIdVal QuestionId: 0x33, Value: 0x0
+				Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+				Not 
+				Or 
+			End 
+			OneOf Prompt: "Ethernet LAN", Help: "Select whether to enable or disable Ethernet LAN device.
+[Enabled]Enables use of Ethernet LAN device.
+[Disabled]Disables use of Ethernet LAN device and keeps it disabled in the OS environment.", QuestionFlags: 0x4, QuestionId: 0x191, VarStoreId: 0x3, VarOffset: 0x15, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+		GrayOutIf 
+			Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+				Not 
+			End 
+			OneOf Prompt: "Wireless LAN", Help: "Select whether to enable or disable Wireless LAN device.
+[Enabled]Enables use of Wireless LAN device.
+[Disabled]Disables use of wireless LAN device and keeps it disabled in the OS environment.", QuestionFlags: 0x4, QuestionId: 0x192, VarStoreId: 0x3, VarOffset: 0x16, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+		GrayOutIf 
+			Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+				Not 
+			End 
+			OneOf Prompt: "Wireless WAN", Help: "Select whether to enable or disable Wireless WAN device.
+[Enabled]Enables use of Wireless WAN device.
+[Disabled]Disables use of Wireless WAN device and keeps it disabled in the OS environment.", QuestionFlags: 0x4, QuestionId: 0x194, VarStoreId: 0x3, VarOffset: 0x18, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+		GrayOutIf 
+			Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+				Not 
+			End 
+			OneOf Prompt: "Bluetooth", Help: "Select whether to enable or disable Bluetooth device.
+[Enabled]Enables use of Bluetooth device.
+[Disabled]Disables use of Bluetooth device and keeps it disabled in the OS environment.", QuestionFlags: 0x4, QuestionId: 0x195, VarStoreId: 0x3, VarOffset: 0x19, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+		GrayOutIf 
+			Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+				Not 
+			End 
+			OneOf Prompt: "USB Port", Help: "Select whether to enable or disable all USB ports.Note: This setting does not affect USB Type-C ports.
+[Enabled]Enables use of USB Ports.
+[Disabled]Disables use of USB Ports and keeps them disabled in the OS environment.", QuestionFlags: 0x4, QuestionId: 0x197, VarStoreId: 0x3, VarOffset: 0x1B, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+		GrayOutIf 
+			Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+				Not 
+			End 
+			OneOf Prompt: "Memory Card Slot", Help: "Select whether to enable or disable Memory Card slot (SD Card/MultiMediaCard/Memory Stick).
+[Enabled]Enables use of Memory Card slot.
+[Disabled]Disables use of Memory Card slot and keeps it disabled in the OS environment.", QuestionFlags: 0x0, QuestionId: 0x28, VarStoreId: 0x3, VarOffset: 0x20, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x25, Value: 0x1
+			GrayOutIf 
+				Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+					Not 
+				End 
+				OneOf Prompt: "Smart Card Slot", Help: "Select whether to enable or disable Smart Card slot.
+[Enabled]Enables use of Smart Card slot.
+[Disabled]Disables use of Smart Card slot and keeps it disabled in the OS environment.", QuestionFlags: 0x4, QuestionId: 0x19D, VarStoreId: 0x3, VarOffset: 0x21, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "Disabled" Value: 0
+					OneOfOption Option: "Enabled" Value: 1
+				End 
+			End 
+		End 
+		GrayOutIf 
+			Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+				Not 
+			End 
+			OneOf Prompt: "Integrated Camera", Help: "Select whether to enable or disable Integrated Camera.
+[Enabled]Enables use of Integrated Camera.
+[Disabled]Disables use of Integrated Camera and keeps it disabled in the OS environment.", QuestionFlags: 0x4, QuestionId: 0x19E, VarStoreId: 0x3, VarOffset: 0x22, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x26, Value: 0x1
+			GrayOutIf 
+				Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+					Not 
+				End 
+				OneOf Prompt: "Microphone", Help: "Select whether to enable or disable Microphone (Internal/External/Line-In).
+[Enabled]To enable Microphone, select Enabled and save the setting. Then fully shutdown and power on the system.
+[Disabled]Disables use of Microphone.", QuestionFlags: 0x0, QuestionId: 0x29, VarStoreId: 0x3, VarOffset: 0x23, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "Disabled" Value: 0
+					OneOfOption Option: "Enabled" Value: 1
+				End 
+			End 
+		End 
+		GrayOutIf 
+			Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+				Not 
+			End 
+			OneOf Prompt: "Fingerprint Reader", Help: "Select whether to enable or disable Internal Fingerprint Reader.
+[Enabled]Enables use of Internal Fingerprint Reader.
+[Disabled]Disables use of Internal Fingerprint Reader and keeps it disabled in the OS environment.", QuestionFlags: 0x4, QuestionId: 0x1A0, VarStoreId: 0x3, VarOffset: 0x24, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x27, Value: 0x1
+			GrayOutIf 
+				Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+					Not 
+				End 
+				OneOf Prompt: "NFC Device", Help: "Select whether to enable or disable NFC Device.
+[Enabled]Enables use of NFC Device.
+[Disabled]Disables use of NFC Device and keeps it disabled in the OS environment.", QuestionFlags: 0x4, QuestionId: 0x1A1, VarStoreId: 0x3, VarOffset: 0x30, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					OneOfOption Option: "Disabled" Value: 0
+					OneOfOption Option: "Enabled" Value: 1
+				End 
+			End 
+		End 
+	End 
+	Form FormId: 0xD, Title: "Internal Device Access"
+		GrayOutIf 
+			Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+				Not 
+			End 
+			OneOf Prompt: "Bottom Cover Tamper Detection", Help: "[Enabled]Enable the tamper detection. When enable this item, EC Reset Detection item can be shown on BIOS setup. If detected, Supervisor Password is required to boot the system.
+[Disabled]Disable the tamper detection.
+
+Bottom Cover Tamper Detection will not take effect unless Supervisor Password is enabled.", QuestionFlags: 0x0, QuestionId: 0x2A, VarStoreId: 0x3, VarOffset: 0x32, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x2A, Value: 0x0
+			GrayOutIf 
+				Security Guid: BDB38125-4D63-49F4-8212-61CF5A190AF8
+				OneOf Prompt: "EC Reset Detection", Help: "Select whether to treat EC Reset events such as the loss of power supply and the emergency reset as a bottom cover tamper.
+[Enabled]
+Enable the EC reset detection. If detected, Supervisor Password is required to boot the system.
+[Disabled]
+Disable the EC reset detection.
+", QuestionFlags: 0x0, QuestionId: 0x294, VarStoreId: 0x3, VarOffset: 0x41, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					Default DefaultId: 0x0 Value: 0
+					OneOfOption Option: "Disabled" Value: 0
+					OneOfOption Option: "Enabled" Value: 1
+				End 
+			End 
+		End 
+		GrayOutIf 
+			Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+				Not 
+			End 
+			OneOf Prompt: "Internal Storage Tamper Detection", Help: "Enabling Internal Storage Tamper Detection detects removal of any fixed or removable Internal storage while the system is in sleep state (S3).
+If a storage is removed while the system is in S3 state, the system will shutdown when woken from S3. Unsaved data will be lost.", QuestionFlags: 0x0, QuestionId: 0x2B, VarStoreId: 0x3, VarOffset: 0x39, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+	End 
+	Form FormId: 0x7, Title: "Anti-Theft"
+		SuppressIf 
+			EqIdVal QuestionId: 0x213, Value: 0x1
+			Ref Prompt: "Computrace", Help: " ", QuestionFlags: 0x0, QuestionId: 0x2C, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x9
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x2D, VarStoreId: 0x7, VarOffset: 0x1, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "" Value: 0
+				OneOfOption Option: "" Value: 1
+			End 
+		End 
+	End 
+	Form FormId: 0x9, Title: "Computrace"
+		SuppressIf 
+			True 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x4, QuestionId: 0x214, VarStoreId: 0x4, VarOffset: 0x4, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+			End 
+		End 
+		GrayOutIf 
+			True 
+			Text Prompt: "Computrace Module Activation       ", Help: "", Text: ""
+		End 
+		SuppressIf 
+			EqIdValList QuestionId: 0x212, Values: [0, 1]
+			GrayOutIf 
+				True 
+				OneOf Prompt: " - Current Setting", Help: "Enables or disables the BIOS interface to activate Computrace module. Computrace is an optional monitoring service from Absolute Software.
+[Enabled] Enables the Computrace activation.[Disabled] Disables the Computrace activation.[Permanently Disabled]Permanently disables the Computrace activation.", QuestionFlags: 0x0, QuestionId: 0x2E, VarStoreId: 0x3, VarOffset: 0x26, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x2, Step: 0x0
+					OneOfOption Option: "Disabled" Value: 0
+					OneOfOption Option: "Enabled" Value: 1
+					OneOfOption Option: "Permanently Disabled" Value: 2
+				End 
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x214, Value: 0x0
+			GrayOutIf 
+				True 
+				OneOf Prompt: " - Current Setting", Help: "Enables or disables the BIOS interface to activate Computrace module. Computrace is an optional monitoring service from Absolute Software.
+[Enabled] Enables the Computrace activation.[Disabled] Disables the Computrace activation.[Permanently Disabled]Permanently disables the Computrace activation.", QuestionFlags: 0x0, QuestionId: 0x2F, VarStoreId: 0x3, VarOffset: 0x26, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x2, Step: 0x0
+					OneOfOption Option: "Disabled" Value: 0
+					OneOfOption Option: "Enabled" Value: 1
+					OneOfOption Option: "Permanently Disabled" Value: 2
+				End 
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x2F, Value: 0x2
+				EqIdVal QuestionId: 0x214, Value: 0x1
+				Or 
+			End 
+			GrayOutIf 
+				Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+					Not 
+				End 
+				OneOf Prompt: " - Current Setting", Help: "Enables or disables the BIOS interface to activate Computrace module. Computrace is an optional monitoring service from Absolute Software.
+[Enabled] Enables the Computrace activation.[Disabled] Disables the Computrace activation.[Permanently Disabled]Permanently disables the Computrace activation.", QuestionFlags: 0x4, QuestionId: 0x212, VarStoreId: 0x3, VarOffset: 0x26, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x2, Step: 0x0
+					OneOfOption Option: "Disabled" Value: 0
+					OneOfOption Option: "Enabled" Value: 1
+					OneOfOption Option: "Permanently Disabled" Value: 2
+				End 
+			End 
+		End 
+		GrayOutIf 
+			Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+				Not 
+			End 
+			SuppressIf 
+				EqIdVal QuestionId: 0x214, Value: 0x0
+					Not 
+				End 
+				Text Prompt: " - Current State", Help: "", Text: "Not Activated"
+			End 
+			SuppressIf 
+				EqIdVal QuestionId: 0x214, Value: 0x1
+					Not 
+				End 
+				Text Prompt: " - Current State", Help: "", Text: "Activated"
+			End 
+		End 
+	End 
+	Form FormId: 0xC, Title: "Secure Boot Configuration"
+		SuppressIf 
+			True 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x4, QuestionId: 0x273A, VarStoreId: 0x6, VarOffset: 0x1, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+			End 
+		End 
+		SuppressIf 
+			True 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x4, QuestionId: 0x2741, VarStoreId: 0x6, VarOffset: 0x0, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+			End 
+		End 
+		GrayOutIf 
+			Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+				Not 
+				EqIdVal QuestionId: 0x28A, Value: 0x1
+				Or 
+			End 
+			OneOf Prompt: "Secure Boot", Help: "Enables or disablesSecure Boot feature.[Enabled]Prevent unauthorizedoperating systems fromrunning at boot time.[Disabled]Allow to run anyoperating systems atboot time.Note: Enabling SecureBoot requires to setthe startup settingto "UEFI Only" and"CSM Support: No".", QuestionFlags: 0x4, QuestionId: 0x23A, VarStoreId: 0x3, VarOffset: 0x2D, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+		GrayOutIf 
+			Uint64 Value: 0x1
+			Text Prompt: "", Help: "", Text: ""
+		End 
+		GrayOutIf 
+			Uint64 Value: 0x1
+			SuppressIf 
+				EqIdVal QuestionId: 0x273A, Value: 0x1
+				Text Prompt: "Platform Mode", Help: "Current status of Protected Signatures.", Text: "User Mode"
+			End 
+		End 
+		GrayOutIf 
+			Uint64 Value: 0x1
+			SuppressIf 
+				EqIdVal QuestionId: 0x273A, Value: 0x0
+				Text Prompt: "Platform Mode", Help: "Current status of Protected Signatures.", Text: "Setup Mode"
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x2741, Value: 0x1
+			GrayOutIf 
+				Uint64 Value: 0x1
+				Text Prompt: "Secure Boot Mode", Help: "Specify the secure boot mode is custom mode or standard mode.", Text: "Standard Mode"
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x2741, Value: 0x0
+			GrayOutIf 
+				Uint64 Value: 0x1
+				Text Prompt: "Secure Boot Mode", Help: "Specify the secure boot mode is custom mode or standard mode.", Text: "Custom Mode"
+			End 
+		End 
+		GrayOutIf 
+			Uint64 Value: 0x1
+			Text Prompt: "", Help: "", Text: ""
+		End 
+		GrayOutIf 
+			Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+				Not 
+				EqIdVal QuestionId: 0x28A, Value: 0x1
+				Or 
+			End 
+			Action Prompt: "Reset to Setup Mode", Help: "This option is usedto clear the currentPlatform Key and putthe system into setupmode. You can installyour own Platform Keyand customize theSecure Bootsignature databasesin setup mode.
+
+Secure Boot modewill be set to custommode.", QuestionFlags: 0x4, QuestionId: 0x2740, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, QuestionConfig: "Enter"
+			End 
+		End 
+		GrayOutIf 
+			Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+				Not 
+				EqIdVal QuestionId: 0x28A, Value: 0x1
+				Or 
+			End 
+			Action Prompt: "Restore Factory Keys", Help: "This option is usedto restore all keysand certificates inSecure Boot databasesto factory defaults.Any customized SecureBoot settings will beerased, and thedefault Platform Keywill bere-established alongwith the originalsignature databasesincluding certificatefor Microsoft (R)Windows 8 (R).", QuestionFlags: 0x4, QuestionId: 0x273B, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, QuestionConfig: "Enter"
+			End 
+		End 
+		GrayOutIf 
+			Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+				Not 
+				EqIdVal QuestionId: 0x28A, Value: 0x1
+				Or 
+			End 
+			Action Prompt: "Clear All Secure Boot Keys", Help: "This option is usedto clear all keys andcertificates inSecure Bootdatabases. You caninstall your own keysand certificatesafter selecting thisoption.", QuestionFlags: 0x4, QuestionId: 0x2746, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, QuestionConfig: "Enter"
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x28A, Value: 0x0
+			GrayOutIf 
+				True 
+				Text Prompt: "", Help: "", Text: ""
+			End 
+			Text Prompt: "* Unselectable for Device Guard", Help: "", Text: ""
+		End 
+	End 
+	Form FormId: 0xF, Title: "Device Guard"
+		GrayOutIf 
+			Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+				Not 
+			End 
+			OneOf Prompt: "Device Guard", Help: "Setup feature to support Microsoft(R) Device Guard.To complete the configuration of Device Guard, Supervisor Password must be set.", QuestionFlags: 0x4, QuestionId: 0x28A, VarStoreId: 0x3, VarOffset: 0x3A, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+	End 
+	Form FormId: 0x10, Title: "DASH Configuration"
+		GrayOutIf 
+			Security Guid: 85B75607-F7CE-471E-B7E4-2AEA5F7232EE
+				Not 
+			End 
+			OneOf Prompt: "DASH Support", Help: "DASH Support Enable/Disable", QuestionFlags: 0x0, QuestionId: 0x30, VarStoreId: 0x3, VarOffset: 0x3F, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+		SuppressIf 
+			Uint64 Value: 0x1
+			OneOf Prompt: "Console Redirection", Help: "Enable/Disable Universal Console Redirection.", QuestionFlags: 0x0, QuestionId: 0x31, VarStoreId: 0x3, VarOffset: 0x40, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+		Ref Prompt: "Realtek LAN Controller", Help: "Realtek LAN Controller", QuestionFlags: 0x0, QuestionId: 0x32, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x1, RefQuestionId: 0x0, FormSetGuid: CEE81408-4764-4314-AB17-5D61691BDA1F
+		DisableIf 
+			True 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x33, VarStoreId: 0x5, VarOffset: 0x7, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x34, VarStoreId: 0x5, VarOffset: 0x5, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x35, VarStoreId: 0x5, VarOffset: 0x4, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+		End 
+	End 
+End 

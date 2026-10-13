@@ -1,0 +1,417 @@
+Program version: 1.6.0, Extraction mode: UEFI
+FormSet Guid: 1247C8E8-307C-4C6B-8812-CA054F9963F8, Title: "Main", Help: ""
+	Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Class, Class: 0x1
+	Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: SubClass, SubClass: 0x0
+	DefaultStore DefaultId: 0x0, Name: ""
+	DefaultStore DefaultId: 0x1, Name: ""
+	VarStore Guid: 6D2EBB2E-569A-4077-BD7B-9CEC218681FB, VarStoreId: 0x1, Size: 0x1, Name: "LenovoPreSave"
+	VarStore Guid: 1247C8E8-307C-4C6B-8812-CA054F9963F8, VarStoreId: 0x2, Size: 0x47C, Name: "MAIN_SYS_INFO"
+	VarStore Guid: E947FCF9-DD01-4965-B808-32A7B6815657, VarStoreId: 0x3, Size: 0x3F, Name: "System"
+	VarStore Guid: 14A22A97-8424-489E-9EAD-DC09255658B5, VarStoreId: 0x4, Size: 0x18, Name: "UCR"
+	VarStore Guid: 1A6A0724-613E-4E82-9181-1AF8401AA0D9, VarStoreId: 0x5, Size: 0x1, Name: "Dummy"
+	VarStore Guid: 46A002E0-0F22-4685-BD6C-DF02F2CC4A70, VarStoreId: 0x6, Size: 0x1, Name: "SECURE_BOOT_STATUS"
+	VarStore Guid: 67C3208E-4FCB-498F-9729-0760BB4109A7, VarStoreId: 0x7, Size: 0x31, Name: "LenovoScratchData"
+	VarStore Guid: A2C1808F-0D4F-4CC9-A619-D1E641D39D49, VarStoreId: 0x8, Size: 0x8B, Name: "LenovoSecurityConfig"
+	Form FormId: 0x1, Title: "Main"
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x1, VarStoreId: 0x1, VarOffset: 0x0, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 1
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x2, VarStoreId: 0x3, VarOffset: 0x0, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x3, VarStoreId: 0x3, VarOffset: 0x1, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x4, QuestionId: 0x64, VarStoreId: 0x3, VarOffset: 0x2, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 1
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x4, QuestionId: 0x65, VarStoreId: 0x3, VarOffset: 0x3, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 1
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x4, QuestionId: 0x66, VarStoreId: 0x3, VarOffset: 0x4, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x4, VarStoreId: 0x3, VarOffset: 0x5, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x5, VarStoreId: 0x3, VarOffset: 0x6, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 1
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x6, VarStoreId: 0x3, VarOffset: 0x7, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x7, VarStoreId: 0x3, VarOffset: 0x8, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x8, VarStoreId: 0x3, VarOffset: 0x9, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x9, VarStoreId: 0x3, VarOffset: 0xA, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0xA, VarStoreId: 0x3, VarOffset: 0xB, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0xB, VarStoreId: 0x3, VarOffset: 0xC, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0xC, VarStoreId: 0x3, VarOffset: 0xD, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0xD, VarStoreId: 0x3, VarOffset: 0xE, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0xE, VarStoreId: 0x3, VarOffset: 0xF, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0xF, VarStoreId: 0x3, VarOffset: 0x10, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x10, VarStoreId: 0x3, VarOffset: 0x11, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x11, VarStoreId: 0x3, VarOffset: 0x12, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x12, VarStoreId: 0x3, VarOffset: 0x13, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x13, VarStoreId: 0x3, VarOffset: 0x14, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 1
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x14, VarStoreId: 0x3, VarOffset: 0x15, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 1
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x15, VarStoreId: 0x3, VarOffset: 0x16, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x16, VarStoreId: 0x3, VarOffset: 0x17, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x17, VarStoreId: 0x3, VarOffset: 0x18, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x4, QuestionId: 0x67, VarStoreId: 0x3, VarOffset: 0x19, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 1
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x18, VarStoreId: 0x3, VarOffset: 0x1A, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x19, VarStoreId: 0x3, VarOffset: 0x1B, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x1A, VarStoreId: 0x3, VarOffset: 0x1C, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x1B, VarStoreId: 0x3, VarOffset: 0x1D, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x1C, VarStoreId: 0x3, VarOffset: 0x1E, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x1D, VarStoreId: 0x3, VarOffset: 0x1F, Flags: 0x11, Size: 16, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x1E, VarStoreId: 0x3, VarOffset: 0x21, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 1
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x1F, VarStoreId: 0x3, VarOffset: 0x22, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 1
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x20, VarStoreId: 0x3, VarOffset: 0x23, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 1
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x21, VarStoreId: 0x3, VarOffset: 0x24, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 1
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x22, VarStoreId: 0x3, VarOffset: 0x25, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x23, VarStoreId: 0x3, VarOffset: 0x26, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x24, VarStoreId: 0x3, VarOffset: 0x27, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x25, VarStoreId: 0x4, VarOffset: 0x0, Flags: 0x12, Size: 32, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x26, VarStoreId: 0x4, VarOffset: 0x4, Flags: 0x12, Size: 32, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 2
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x27, VarStoreId: 0x4, VarOffset: 0x8, Flags: 0x12, Size: 32, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 115200
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x28, VarStoreId: 0x4, VarOffset: 0xC, Flags: 0x12, Size: 32, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x29, VarStoreId: 0x4, VarOffset: 0x10, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 1
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x4, QuestionId: 0x69, VarStoreId: 0x5, VarOffset: 0x0, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			String Prompt: "UEFI BIOS Version", Help: "", QuestionFlags: 0x0, QuestionId: 0x2A, VarStoreId: 0x2, VarStoreInfo: 0x0, MinSize: 0x0, MaxSize: 0x28, Flags: 0x0
+			End 
+		End 
+		Text Prompt: "UEFI BIOS Version", Help: "", Text: ""
+		Text Prompt: "UEFI BIOS Date (Year-Month-Day)", Help: "", Text: ""
+		Text Prompt: "Embedded Controller Version", Help: "", Text: ""
+		SuppressIf 
+			EqIdVal QuestionId: 0x2B, Value: 0x0
+			Text Prompt: "DASH Firmware Version", Help: "", Text: ""
+		End 
+		Text Prompt: "Machine Type Model", Help: "", Text: ""
+		Text Prompt: "System-unit serial number", Help: "", Text: ""
+		Text Prompt: "System board serial number", Help: "", Text: ""
+		Text Prompt: "Asset Tag", Help: "", Text: ""
+		Text Prompt: "CPU Type", Help: "", Text: ""
+		Text Prompt: "CPU Speed", Help: "", Text: ""
+		Text Prompt: "Installed memory", Help: "", Text: ""
+		Text Prompt: "UUID", Help: "", Text: ""
+		Text Prompt: "MAC Address (Internal LAN)", Help: "", Text: ""
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x4, QuestionId: 0x68, VarStoreId: 0x2, VarOffset: 0x3D8, Flags: 0x11, Size: 16, Min: 0x0, Max: 0x0, Step: 0x0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x68, Value: 0x0
+			Text Prompt: "Preinstalled OS License", Help: "", Text: ""
+		End 
+		SuppressIf 
+			Uint64 Value: 0x1
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x4, QuestionId: 0x6A, VarStoreId: 0x6, VarOffset: 0x0, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+			End 
+		End 
+		SuppressIf 
+			QuestionRef1 QuestionId: 0x6A
+				Uint64 Value: 0x1
+				Equal 
+			End 
+			Text Prompt: "UEFI Secure Boot", Help: "", Text: "Off"
+		End 
+		SuppressIf 
+			QuestionRef1 QuestionId: 0x6A
+				Uint64 Value: 0x0
+				Equal 
+			End 
+			Text Prompt: "UEFI Secure Boot", Help: "", Text: "On"
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x4, QuestionId: 0x6B, VarStoreId: 0x2, VarOffset: 0x42A, Flags: 0x11, Size: 16, Min: 0x0, Max: 0x0, Step: 0x0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x6B, Value: 0x0
+			Text Prompt: "OA3 ID", Help: "", Text: ""
+		End 
+		SuppressIf 
+			True 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x4, QuestionId: 0x6C, VarStoreId: 0x7, VarOffset: 0x1D, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x6C, Value: 0x0
+			Text Prompt: "OA2", Help: "", Text: "Yes"
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x6C, Value: 0x1
+			Text Prompt: "OA2", Help: "", Text: "No"
+		End 
+		DisableIf 
+			True 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x2B, VarStoreId: 0x8, VarOffset: 0x3F, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xFF, Step: 0x0
+			End 
+		End 
+	End 
+End 

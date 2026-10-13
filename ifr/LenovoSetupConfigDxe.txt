@@ -1,0 +1,484 @@
+Program version: 1.6.0, Extraction mode: UEFI
+FormSet Guid: 3E59F6A2-AA28-42F4-BCC0-AEDFE88106AD, Title: "Config", Help: ""
+	Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: Class, Class: 0x1
+	Guid Guid: 0F0B1735-87A0-4193-B266-538C38AF48CE, ExtendedOpCode: SubClass, SubClass: 0x0
+	DefaultStore DefaultId: 0x0, Name: ""
+	DefaultStore DefaultId: 0x1, Name: ""
+	VarStore Guid: E947FCF9-DD01-4965-B808-32A7B6815657, VarStoreId: 0x1, Size: 0x3F, Name: "System"
+	VarStore Guid: 2A4DC6B7-41F5-45DD-B46F-2DD334C1CF65, VarStoreId: 0x2, Size: 0xF3, Name: "LenovoConfig"
+	VarStore Guid: 67C3208E-4FCB-498F-9729-0760BB4109A7, VarStoreId: 0x3, Size: 0x31, Name: "LenovoScratchData"
+	VarStore Guid: 580020C3-6C9C-4F93-8008-7FADC1FCFEDD, VarStoreId: 0x4, Size: 0x31, Name: "LenovoFunctionConfig"
+	VarStore Guid: E5A7E085-CB66-4192-AEF7-658B8E0A6417, VarStoreId: 0x5, Size: 0x5, Name: "NodeConfig"
+	VarStore Guid: 2A4DC6B7-41F5-45DD-B46F-2DD334C1CF65, VarStoreId: 0x6, Size: 0x19, Name: "LBC"
+	Form FormId: 0x1, Title: "Config"
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x1, VarStoreId: 0x5, VarOffset: 0x1, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x4, QuestionId: 0x7A, VarStoreId: 0x5, VarOffset: 0x0, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x4, QuestionId: 0x7B, VarStoreId: 0x5, VarOffset: 0x2, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x2, VarStoreId: 0x2, VarOffset: 0x28, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x3, VarStoreId: 0x3, VarOffset: 0x19, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 1
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x4, VarStoreId: 0x6, VarOffset: 0x0, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x5, VarStoreId: 0x6, VarOffset: 0x1, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x6, VarStoreId: 0x6, VarOffset: 0x2, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		Ref Prompt: "Network", Help: "  ", QuestionFlags: 0x0, QuestionId: 0x7, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x2
+		Ref Prompt: "USB", Help: "", QuestionFlags: 0x0, QuestionId: 0x8, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x3
+		Ref Prompt: "Keyboard/Mouse", Help: "", QuestionFlags: 0x0, QuestionId: 0x9, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x4
+		Ref Prompt: "Display", Help: "", QuestionFlags: 0x0, QuestionId: 0xA, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x5
+		Ref Prompt: "Power", Help: "", QuestionFlags: 0x0, QuestionId: 0xB, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x6
+		Ref Prompt: "Beep and Alarm", Help: "", QuestionFlags: 0x0, QuestionId: 0xC, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x7
+		SuppressIf 
+			Uint64 Value: 0x1
+			Ref Prompt: "Serial ATA (SATA)", Help: "", QuestionFlags: 0x0, QuestionId: 0xD, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x8
+		End 
+		SuppressIf 
+			Uint64 Value: 0x1
+			Ref Prompt: "CPU", Help: "", QuestionFlags: 0x0, QuestionId: 0xE, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, FormId: 0x9
+		End 
+	End 
+	Form FormId: 0x2, Title: "Network"
+		GrayOutIf 
+			Security Guid: BDB38125-4D63-49F4-8212-61CF5A190AF8
+			OneOf Prompt: "Wake On LAN", Help: "AC Only: Wake On LAN function works only when AC is attached.
+AC and Battery: Wake On LAN function works with both AC and battery.
+Note that AC is required with magic packet type Wake On LAN.
+Wake On LAN function does not work when Hard Disk Password is set.", QuestionFlags: 0x4, QuestionId: 0x64, VarStoreId: 0x2, VarOffset: 0x0, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x2, Step: 0x0
+				Default DefaultId: 0x0 Value: 1
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "AC Only" Value: 1
+				OneOfOption Option: "AC and Battery" Value: 2
+			End 
+		End 
+		GrayOutIf 
+			Security Guid: BDB38125-4D63-49F4-8212-61CF5A190AF8
+			OneOf Prompt: "Wake On LAN from Dock", Help: "Enable/Disable Wake On LAN from Dock function works only when ThinkPad USB-C Dock or ThinkPad Thunderbolt 3 Dock is attached.
+Note that Wake On LAN from Dock function does not work when Hard Disk Password is set.", QuestionFlags: 0x4, QuestionId: 0x90, VarStoreId: 0x2, VarOffset: 0x42, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				Default DefaultId: 0x0 Value: 1
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x7B, Value: 0x1
+			GrayOutIf 
+				Security Guid: BDB38125-4D63-49F4-8212-61CF5A190AF8
+				OneOf Prompt: "Ethernet LAN Option ROM", Help: "Select whether to load the Ethernet LAN Option ROM to enable startup from the integrated network device. This option must be enabled to display the MAC Address for the integrated network.", QuestionFlags: 0x4, QuestionId: 0x65, VarStoreId: 0x2, VarOffset: 0x2, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					Default DefaultId: 0x0 Value: 1
+					OneOfOption Option: "Disabled" Value: 0
+					OneOfOption Option: "Enabled" Value: 1
+				End 
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x7B, Value: 0x0
+			GrayOutIf 
+				Security Guid: BDB38125-4D63-49F4-8212-61CF5A190AF8
+				OneOf Prompt: "UEFI IPv4 Network Stack", Help: "Enable/Disable UEFI IPv4 Network Stack for UEFI environment.", QuestionFlags: 0x4, QuestionId: 0x7C, VarStoreId: 0x2, VarOffset: 0x3, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					Default DefaultId: 0x0 Value: 1
+					OneOfOption Option: "Disabled" Value: 0
+					OneOfOption Option: "Enabled" Value: 1
+				End 
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x7B, Value: 0x0
+				Uint64 Value: 0x1
+				Uint64 Value: 0x0
+				Equal 
+				Or 
+			End 
+			GrayOutIf 
+				Security Guid: BDB38125-4D63-49F4-8212-61CF5A190AF8
+				OneOf Prompt: "UEFI IPv6 Network Stack", Help: "Enable/Disable UEFI IPv6 Network Stack for UEFI environment.", QuestionFlags: 0x4, QuestionId: 0x7D, VarStoreId: 0x2, VarOffset: 0x4, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					Default DefaultId: 0x0 Value: 1
+					OneOfOption Option: "Disabled" Value: 0
+					OneOfOption Option: "Enabled" Value: 1
+				End 
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x7B, Value: 0x0
+				EqIdVal QuestionId: 0x7C, Value: 0x0
+				Or 
+				EqIdVal QuestionId: 0x7D, Value: 0x0
+				Or 
+				Uint64 Value: 0x1
+				Uint64 Value: 0x0
+				Equal 
+				Or 
+			End 
+			GrayOutIf 
+				Security Guid: BDB38125-4D63-49F4-8212-61CF5A190AF8
+				OneOf Prompt: "UEFI PXE Boot Priority", Help: "Select Network Stack priority for UEFI PXE Boot.", QuestionFlags: 0x4, QuestionId: 0x7E, VarStoreId: 0x2, VarOffset: 0x5, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					Default DefaultId: 0x0 Value: 1
+					OneOfOption Option: "IPv6 First" Value: 0
+					OneOfOption Option: "IPv4 First" Value: 1
+				End 
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x4, QuestionId: 0x88, VarStoreId: 0x4, VarOffset: 0x6, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				OneOfOption Option: "" Value: 0
+			End 
+		End 
+		SuppressIf 
+			Uint64 Value: 0x1
+			GrayOutIf 
+				EqIdVal QuestionId: 0x88, Value: 0x0
+					Security Guid: BDB38125-4D63-49F4-8212-61CF5A190AF8
+					Or 
+				End 
+				OneOf Prompt: "Wireless Auto Disconnection", Help: "Enable/Disable Wireless Auto Disconnection feature when Ethernet cable is connected to Ethernet LAN on system. If Enabled, Wireless LAN and WiGig radios are automatically turned off whenever Ethernet cable is connected.
+Note that Ethernet attached by USB is not supported by this feature.", QuestionFlags: 0x4, QuestionId: 0x87, VarStoreId: 0x2, VarOffset: 0x3B, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					Default DefaultId: 0x0 Value: 0
+					OneOfOption Option: "Disabled" Value: 0
+					OneOfOption Option: "Enabled" Value: 1
+				End 
+			End 
+		End 
+		GrayOutIf 
+			Security Guid: BDB38125-4D63-49F4-8212-61CF5A190AF8
+			OneOf Prompt: "MAC Address Pass Through", Help: "Enable/Disable MAC Address Pass Through function when dock is attached. If Enabled, dock Ethernet uses same MAC address as internal Ethernet LAN. If Disabled, dock Ethernet uses its own MAC address.", QuestionFlags: 0x4, QuestionId: 0x8B, VarStoreId: 0x2, VarOffset: 0x3C, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+	End 
+	Form FormId: 0x3, Title: "USB"
+		GrayOutIf 
+			Security Guid: BDB38125-4D63-49F4-8212-61CF5A190AF8
+			OneOf Prompt: "USB UEFI BIOS Support", Help: "Enable/Disable UEFI BIOS support for USB.
+[Disabled] Disables boot with USB diskette, USB memory key and USB optical drive. This frees 16KB of high memory for loading DOS device drivers.
+[Enabled] Allows boot with USB diskette, USB memory key or USB optical drive.", QuestionFlags: 0x4, QuestionId: 0x66, VarStoreId: 0x2, VarOffset: 0x6, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				Default DefaultId: 0x0 Value: 1
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+		GrayOutIf 
+			Security Guid: BDB38125-4D63-49F4-8212-61CF5A190AF8
+			OneOf Prompt: "Always On USB", Help: "The USB ports can charge external device during low power states (standby, hibernate or power-off).If the system runs on battery mode, this works only in standby state.
+[Disabled] USB ports are disabled during low power states.
+[Enabled] USB ports are powered during low power states.", QuestionFlags: 0x0, QuestionId: 0xF, VarStoreId: 0x2, VarOffset: 0x7, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				Default DefaultId: 0x0 Value: 1
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0xF, Value: 0x0
+			GrayOutIf 
+				Security Guid: BDB38125-4D63-49F4-8212-61CF5A190AF8
+				OneOf Prompt: " - Charge in Battery Mode", Help: "Enable/Disable charging external device when system is in hibernate or power-off state and in battery mode.
+[Disabled] Disables charging when system is in hibernate or power-off state and in battery mode.[Enabled] Enables charging when system is in hibernate or power-off state and in battery mode.", QuestionFlags: 0x0, QuestionId: 0x10, VarStoreId: 0x2, VarOffset: 0x8, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					Default DefaultId: 0x0 Value: 0
+					OneOfOption Option: "Disabled" Value: 0
+					OneOfOption Option: "Enabled" Value: 1
+				End 
+			End 
+		End 
+		SuppressIf 
+			True 
+			OneOf Prompt: "", Help: "", QuestionFlags: 0x0, QuestionId: 0x11, VarStoreId: 0x2, VarOffset: 0x27, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x0, Step: 0x0
+				Default DefaultId: 0x0 Value: 1
+			End 
+		End 
+	End 
+	Form FormId: 0x4, Title: "Keyboard/Mouse"
+		GrayOutIf 
+			Security Guid: BDB38125-4D63-49F4-8212-61CF5A190AF8
+			OneOf Prompt: "TrackPoint", Help: "Enables or disables built-in TrackPoint.
+[Disable] Built-in TrackPoint is disabled.
+[Enable] Built-in TrackPoint is enabled.", QuestionFlags: 0x0, QuestionId: 0x12, VarStoreId: 0x2, VarOffset: 0x9, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				Default DefaultId: 0x0 Value: 1
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+		GrayOutIf 
+			Security Guid: BDB38125-4D63-49F4-8212-61CF5A190AF8
+			OneOf Prompt: "Trackpad", Help: "Enables or disables built-in trackpad.
+[Disable] Built-in trackpad is disabled.
+[Enable] Built-in trackpad is enabled.", QuestionFlags: 0x0, QuestionId: 0x13, VarStoreId: 0x2, VarOffset: 0xA, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				Default DefaultId: 0x0 Value: 1
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+		GrayOutIf 
+			True 
+			Text Prompt: "", Help: "", Text: ""
+		End 
+		GrayOutIf 
+			Security Guid: BDB38125-4D63-49F4-8212-61CF5A190AF8
+			OneOf Prompt: "Fn and Ctrl Key swap", Help: "Enables exchange of Fn and Ctrl key action at lower left of keyboard.
+[Disabled] Fn key and Ctrl key behavior is as printed on the keyboard.
+[Enabled] Fn key works as Ctrl key. Ctrl key works as Fn key.
+Note: Bottom-Left key will wake the system from sleep state.", QuestionFlags: 0x0, QuestionId: 0x14, VarStoreId: 0x2, VarOffset: 0xB, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+		GrayOutIf 
+			Security Guid: BDB38125-4D63-49F4-8212-61CF5A190AF8
+			OneOf Prompt: "Fn Sticky Key", Help: "When enabled, you can press the Fn key to keep it in a pressed condition, then press the desired function key.The action is equivalent to pressing the required key and the Fn key simultaneously. When you pressed the Fn key twice, the state is locked until you press the Fn key again", QuestionFlags: 0x0, QuestionId: 0x15, VarStoreId: 0x2, VarOffset: 0xC, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x7A, Value: 0x0
+				EqIdVal QuestionId: 0x1, Value: 0x0
+				Or 
+			End 
+			GrayOutIf 
+				Security Guid: BDB38125-4D63-49F4-8212-61CF5A190AF8
+				OneOf Prompt: "Keyboard Illumination Control", Help: "Select Keyboard Illumination device.
+[ThinkLight Only] Disables Keyboard Backlight.
+[Keyboard Backlight Only] Disables ThinkLight.
+[Both] Enables both devices.", QuestionFlags: 0x0, QuestionId: 0x16, VarStoreId: 0x2, VarOffset: 0x32, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x2, Step: 0x0
+					Default DefaultId: 0x0 Value: 1
+					OneOfOption Option: "ThinkLight Only" Value: 0
+					OneOfOption Option: "Keyboard Backlight Only" Value: 1
+					OneOfOption Option: "Both" Value: 2
+				End 
+			End 
+		End 
+		SuppressIf 
+			True 
+			Numeric Prompt: "", Help: "", QuestionFlags: 0x4, QuestionId: 0x85, VarStoreId: 0x5, VarOffset: 0x4, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+			End 
+		End 
+		SuppressIf 
+			EqIdVal QuestionId: 0x85, Value: 0x0
+			GrayOutIf 
+				Security Guid: BDB38125-4D63-49F4-8212-61CF5A190AF8
+				OneOf Prompt: "F1-F12 as Primary Function", Help: "Enable the F1-F12 function or the special function printed as an icon on each key as the primary function.
+[Enabled] Executes the F1-F12 function.
+[Disabled] Executes the special function.
+Alternatively, to switch above two options, press Fn+Esc to use FnLk. LED is on when FnLk is enabled.", QuestionFlags: 0x0, QuestionId: 0x17, VarStoreId: 0x2, VarOffset: 0x39, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					Default DefaultId: 0x0 Value: 0
+					OneOfOption Option: "Disabled" Value: 0
+					OneOfOption Option: "Enabled" Value: 1
+				End 
+			End 
+		End 
+	End 
+	Form FormId: 0x5, Title: "Display"
+		SuppressIf 
+			Uint64 Value: 0x1
+			OneOf Prompt: "Disabled", Help: "Disabled", QuestionFlags: 0x4, QuestionId: 0x72, VarStoreId: 0x2, VarOffset: 0x28, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+		GrayOutIf 
+			Security Guid: BDB38125-4D63-49F4-8212-61CF5A190AF8
+			OneOf Prompt: "Boot Display Device", Help: "Select a display device for boot.[USB Type-C] USB Type-C connector on ThinkPad.[HDMI] HDMI connector on ThinkPad.", QuestionFlags: 0x0, QuestionId: 0x18, VarStoreId: 0x2, VarOffset: 0xF, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x2, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "ThinkPad LCD" Value: 0
+				OneOfOption Option: "USB Type-C" Value: 1
+				OneOfOption Option: "HDMI" Value: 2
+			End 
+		End 
+		SuppressIf 
+			Uint64 Value: 0x1
+			SuppressIf 
+				EqIdVal QuestionId: 0x72, Value: 0x1
+					Not 
+				End 
+				GrayOutIf 
+					Security Guid: BDB38125-4D63-49F4-8212-61CF5A190AF8
+					OneOf Prompt: "Graphics Device", Help: "Discrete Graphics mode will achieve higher graphics performance.Hybrid Graphics mode runs as Integrated Graphics mode to achieve longer battery life, and Discrete Graphics is enabled on demand.", QuestionFlags: 0x10, QuestionId: 0x19, VarStoreId: 0x2, VarOffset: 0x10, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+						Default DefaultId: 0x0 Value: 1
+						OneOfOption Option: "Discrete Graphics" Value: 1
+						OneOfOption Option: "Hybrid Graphics" Value: 0
+					End 
+				End 
+			End 
+		End 
+		GrayOutIf 
+			True 
+			Text Prompt: "", Help: "", Text: ""
+		End 
+		GrayOutIf 
+			Security Guid: BDB38125-4D63-49F4-8212-61CF5A190AF8
+			OneOf Prompt: "Boot Time Extension", Help: "This option defines the amount of time to extend the boot process, in seconds.The system cannot detect some external monitors during boot because they need a few seconds to be ready. Try this option if the monitor being used does not display the boot screen.", QuestionFlags: 0x4, QuestionId: 0x1A, VarStoreId: 0x2, VarOffset: 0x38, Flags: 0x10, Size: 8, Min: 0x0, Max: 0xA, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "1 second" Value: 1
+				OneOfOption Option: "2 seconds" Value: 2
+				OneOfOption Option: "3 seconds" Value: 3
+				OneOfOption Option: "5 seconds" Value: 5
+				OneOfOption Option: "10 seconds" Value: 10
+			End 
+		End 
+	End 
+	Form FormId: 0x6, Title: "Power"
+		SuppressIf 
+			Uint64 Value: 0x0
+			GrayOutIf 
+				Security Guid: BDB38125-4D63-49F4-8212-61CF5A190AF8
+				OneOf Prompt: "AMD PowerNow! (TM) technology", Help: "This selects the mode of AMD PowerNow! (TM) technology at runtime.Maximum Performance -  Always highest speedBattery Optimized -  Always lowest speedDisabled -  No runtime support,  highest speed", QuestionFlags: 0x4, QuestionId: 0x67, VarStoreId: 0x2, VarOffset: 0x13, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					Default DefaultId: 0x0 Value: 1
+					OneOfOption Option: "Disabled" Value: 0
+					OneOfOption Option: "Enabled" Value: 1
+				End 
+			End 
+		End 
+		SuppressIf 
+			Uint64 Value: 0x0
+			GrayOutIf 
+				Security Guid: BDB38125-4D63-49F4-8212-61CF5A190AF8
+				OneOf Prompt: "    Mode for AC", Help: "This selects the mode of AMD PowerNow! (TM) technology at runtime.Maximum Performance -  Always highest speedBattery Optimized -  Always lowest speedDisabled -  No runtime support,  highest speed", QuestionFlags: 0x0, QuestionId: 0x1B, VarStoreId: 0x2, VarOffset: 0x14, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					Default DefaultId: 0x0 Value: 0
+					OneOfOption Option: "Maximum Performance" Value: 0
+					OneOfOption Option: "Battery Optimized" Value: 1
+				End 
+			End 
+		End 
+		SuppressIf 
+			Uint64 Value: 0x0
+			GrayOutIf 
+				Security Guid: BDB38125-4D63-49F4-8212-61CF5A190AF8
+				OneOf Prompt: "    Mode for Battery", Help: "This selects the mode of AMD PowerNow! (TM) technology at runtime.Maximum Performance -  Always highest speedBattery Optimized -  Always lowest speedDisabled -  No runtime support,  highest speed", QuestionFlags: 0x0, QuestionId: 0x1C, VarStoreId: 0x2, VarOffset: 0x15, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					Default DefaultId: 0x0 Value: 1
+					OneOfOption Option: "Maximum Performance" Value: 0
+					OneOfOption Option: "Battery Optimized" Value: 1
+				End 
+			End 
+		End 
+		SuppressIf 
+			Uint64 Value: 0x0
+			GrayOutIf 
+				True 
+				Text Prompt: "Adaptive Thermal Management", Help: "", Text: ""
+			End 
+			GrayOutIf 
+				Security Guid: BDB38125-4D63-49F4-8212-61CF5A190AF8
+				OneOf Prompt: "    Scheme for AC", Help: "Select a thermal management scheme to use
+Maximize Performance -  Reduces CPU throttlingBalanced -  Balanced sound,  temperature and  performance
+Note: Each scheme affects fan sound, temperature and performance.", QuestionFlags: 0x0, QuestionId: 0x1D, VarStoreId: 0x2, VarOffset: 0x17, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					Default DefaultId: 0x0 Value: 0
+					OneOfOption Option: "Maximize Performance" Value: 0
+					OneOfOption Option: "Balanced" Value: 1
+				End 
+			End 
+			GrayOutIf 
+				Security Guid: BDB38125-4D63-49F4-8212-61CF5A190AF8
+				OneOf Prompt: "    Scheme for Battery", Help: "Select a thermal management scheme to use
+Maximize Performance -  Reduces CPU throttlingBalanced -  Balanced sound,  temperature and  performance
+Note: Each scheme affects fan sound, temperature and performance.", QuestionFlags: 0x0, QuestionId: 0x1E, VarStoreId: 0x2, VarOffset: 0x18, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					Default DefaultId: 0x0 Value: 1
+					OneOfOption Option: "Maximize Performance" Value: 0
+					OneOfOption Option: "Balanced" Value: 1
+				End 
+			End 
+		End 
+		GrayOutIf 
+			Security Guid: BDB38125-4D63-49F4-8212-61CF5A190AF8
+			OneOf Prompt: "CPU Power Management", Help: "Enables or disables the power saving feature that stop the microprocessor clock automatically when there are no system activities.Normally, it is not necessary to change this setting.", QuestionFlags: 0x4, QuestionId: 0x68, VarStoreId: 0x2, VarOffset: 0x1A, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				Default DefaultId: 0x0 Value: 1
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+		GrayOutIf 
+			Security Guid: BDB38125-4D63-49F4-8212-61CF5A190AF8
+			OneOf Prompt: "Power On with AC Attach", Help: "Enables or disables a feature that powers on the system when AC is attached.
+
+If enabled, the system is powered on when AC is attached. When the system is in hibernate state, the system resumes.
+If disabled, the system is not powered on nor resumed when AC is attached.", QuestionFlags: 0x0, QuestionId: 0x1F, VarStoreId: 0x2, VarOffset: 0x2A, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+		GrayOutIf 
+			True 
+			Text Prompt: "", Help: "", Text: ""
+		End 
+		GrayOutIf 
+			Security Guid: BDB38125-4D63-49F4-8212-61CF5A190AF8
+			Action Prompt: "Disable Built-in Battery", Help: "Temporarily disable battery for servicing the system. After selecting this item, the system will be automatically powered off, then ready to be serviced.
+Note: the battery will be automatically enabled when the AC adapter is reconnected.", QuestionFlags: 0x4, QuestionId: 0x7F, VarStoreId: 0x0, VarStoreInfo: 0xFFFF, QuestionConfig: "Enter"
+			End 
+		End 
+		SuppressIf 
+			Uint64 Value: 0x1
+			GrayOutIf 
+				Security Guid: BDB38125-4D63-49F4-8212-61CF5A190AF8
+				OneOf Prompt: "Fn key wake capability", Help: "[Enabled] Allows Fn key to wake from sleep state.", QuestionFlags: 0x0, QuestionId: 0x20, VarStoreId: 0x2, VarOffset: 0x33, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+					Default DefaultId: 0x0 Value: 0
+					OneOfOption Option: "Enabled" Value: 0
+					OneOfOption Option: "Disabled" Value: 1
+				End 
+			End 
+		End 
+	End 
+	Form FormId: 0x7, Title: "Beep and Alarm"
+		GrayOutIf 
+			Security Guid: BDB38125-4D63-49F4-8212-61CF5A190AF8
+			OneOf Prompt: "Password Beep", Help: "Enable this option to have a beep sound when the system is waiting for a power-on, hard disk, or supervisor password. Different beeps will be sounded when the entered password matches or does not match the configured password.", QuestionFlags: 0x0, QuestionId: 0x21, VarStoreId: 0x2, VarOffset: 0x1D, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				Default DefaultId: 0x0 Value: 0
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+		GrayOutIf 
+			Security Guid: BDB38125-4D63-49F4-8212-61CF5A190AF8
+			OneOf Prompt: "Keyboard Beep", Help: "Keyboard beep occurs when unmanageable key combination are pressed.
+[Enabled]Keyboard beep is enabled.
+[Disabled]Keyboard beep is disabled.", QuestionFlags: 0x0, QuestionId: 0x22, VarStoreId: 0x2, VarOffset: 0x1E, Flags: 0x10, Size: 8, Min: 0x0, Max: 0x1, Step: 0x0
+				Default DefaultId: 0x0 Value: 1
+				OneOfOption Option: "Disabled" Value: 0
+				OneOfOption Option: "Enabled" Value: 1
+			End 
+		End 
+	End 
+End 
