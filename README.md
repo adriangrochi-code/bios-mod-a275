@@ -137,13 +137,38 @@ A y B consiguen lo mismo sin ese riesgo.
   lista FRU de Lenovo para la A275. Algunas Intel AC 8265 y Realtek de ThinkPads de la misma
   época suelen estar en esa lista, pero compruébalo en el PSREF o la HMM antes de comprar.
 
-## 5. Estructura del repo
+## 5. Más allá del BIOS: distro y kernel de máximo rendimiento por vatio
+
+El BIOS es solo una de las palancas. El plan completo para una distro con kernel propio,
+medición de rendimiento, latencia y consumo, política de memoria adaptativa (zswap, MGLRU,
+DAMON, KSM), undervolt por MSR y pila gráfica moderna (amdgpu, RADV/Vulkan, VA-API,
+Wayland) está en [`docs/plan-rendimiento-por-vatio.md`](docs/plan-rendimiento-por-vatio.md),
+con un backlog de ideas valoradas por ganancia, coste y forma de medirlas.
+
+Piezas ya disponibles:
+
+- [`kernel/a275-eficiencia.config`](kernel/a275-eficiencia.config): fragmento de
+  configuración del kernel con todos los interruptores conmutables en caliente y los
+  contadores de potencia de la familia 15h. Se aplica con `merge_config.sh`.
+- [`etc/sysctl.d/90-a275-memoria.conf`](etc/sysctl.d/90-a275-memoria.conf) y
+  [`etc/tmpfiles.d/90-a275-memoria.conf`](etc/tmpfiles.d/90-a275-memoria.conf): perfil de
+  memoria y CPU de partida (estado "A" de los experimentos).
+- [`scripts/medir.sh`](scripts/medir.sh): arnés de medición. Corre una carga y guarda
+  vatios del paquete y de la batería, temperatura, frecuencia, PSI, refaults y zswap.
+  Ejemplo: `scripts/medir.sh -e boost0 -w 1 -- make -j4` y luego `scripts/comparar.py`.
+
+## 6. Estructura del repo
 
 ```
-README.md               esta guía
-ifr/                    menús extraídos (IFR en texto) de los módulos de Setup
-scripts/extract_bios.sh descarga el BIOS oficial y extrae todos los IFR
-scripts/collect_pe.py   auxiliar: copia los módulos PE32 que saca UEFIExtract
+README.md                         esta guía
+docs/plan-rendimiento-por-vatio.md plan, palancas, hoja de ruta y backlog
+ifr/                              menús extraídos (IFR en texto) de los módulos de Setup
+kernel/a275-eficiencia.config     fragmento de config del kernel
+etc/sysctl.d, etc/tmpfiles.d      perfil de memoria y CPU de partida
+scripts/extract_bios.sh           descarga el BIOS oficial y extrae todos los IFR
+scripts/collect_pe.py             auxiliar: copia los módulos PE32 que saca UEFIExtract
+scripts/medir.sh                  arnés de medición (vatios, PSI, refaults, zswap)
+scripts/comparar.py               tabla comparativa de ejecuciones de medir.sh
 ```
 
 El repo no incluye binarios de Lenovo; el script los descarga de `download.lenovo.com`.
